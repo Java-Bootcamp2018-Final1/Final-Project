@@ -44,6 +44,9 @@ public class Programme {
     // Getters and Setters
 
 
+    public Programme() {
+    }
+
     public long getId() {
         return id;
     }
