@@ -29,13 +29,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         http
 
                 .authorizeRequests()
-                .antMatchers("/","/login","/register", "/css/**","/fonts/**","/js/**","/img/**","/sass/**").permitAll()
+                .antMatchers("/**", "/css/**","/fonts/**","/js/**","/img/**","/sass/**").permitAll()
+/*
                 .antMatchers("/addtopic","/remove/**","/enable/**","/personalnews","/newscategory/{cattypename}").hasAuthority("USER")
+*/
                 .anyRequest().authenticated();
 
         http
                 .formLogin().failureUrl("/login?error")
-                .defaultSuccessUrl("/personalnews")
+                .defaultSuccessUrl("/")
                 .loginPage("/login")
                 .permitAll()
                 .and()
@@ -45,7 +47,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("brandon").password("password").authorities("ADMIN");
         auth.userDetailsService(userDetailsServiceBean());
     }
 }
