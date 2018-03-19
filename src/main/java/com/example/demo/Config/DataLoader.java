@@ -1,9 +1,8 @@
 package com.example.demo.Config;
 
-import com.example.demo.Models.AppRole;
-import com.example.demo.Models.AppUser;
-import com.example.demo.Repositories.AppRoleRepository;
-import com.example.demo.Repositories.AppUserRepository;
+import com.example.demo.Controllers.MethodsService;
+import com.example.demo.Models.*;
+import com.example.demo.Repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,6 +17,12 @@ public class DataLoader implements CommandLineRunner {
 
     @Autowired
     AppUserRepository appUserRepository;
+    @Autowired
+    StudentRepository studentRepository;
+    @Autowired
+    ProgrammeRepository programmeRepository;
+    @Autowired
+    MethodsService methodsService;
 
 
 
@@ -25,42 +30,79 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         System.out.println("Loading data ...");
         AppRole role = new AppRole();
-        role.setRoleName("USER");
+        role.setRoleName("STUDENT");
         appRoleRepository.save(role);
 
         role = new AppRole();
         role.setRoleName("ADMIN");
         appRoleRepository.save(role);
 
-        // Users
-        // User 1
-        AppUser appUser = new AppUser();
-        appUser.setFirstName("John");
-        appUser.setLastName("Doe");
-        appUser.setAppUsername("john");
-        appUser.setAppPassword("password1");
-        appUserRepository.save(appUser);
-        appUser.addRole(appRoleRepository.findAppRoleByRoleName("USER"));
-        appUserRepository.save(appUser);
-        // User 2
-        appUser = new AppUser();
-        appUser.setFirstName("Jacob");
-        appUser.setLastName("Smith");
-        appUser.setAppUsername("jacob");
-        appUser.setAppPassword("password2");
-        appUserRepository.save(appUser);
-        appUser.addRole(appRoleRepository.findAppRoleByRoleName("USER"));
-        appUserRepository.save(appUser);
-        // User 3
-        appUser = new AppUser();
-        appUser.setFirstName("Jane");
-        appUser.setLastName("Pane");
-        appUser.setAppUsername("jane");
-        appUser.setAppPassword("password3");
-        appUserRepository.save(appUser);
-        appUser.addRole(appRoleRepository.findAppRoleByRoleName("USER"));
-        appUserRepository.save(appUser);
-//git
+        // USERS
+        // Students
+        Student student = new Student();
+        // Student 1
+        student.setFirstName("John");
+        student.setLastName("Doe");
+        student.setUserEmail("g1@gmail.com");
+        student.setAppPassword("password1");
+        studentRepository.save(student);
+        methodsService.registerStudent(student);
+        // Student 2
+        student = new Student();
+        student.setFirstName("Jacob");
+        student.setLastName("Smith");
+        student.setUserEmail("g2@gmail.com");
+        student.setAppPassword("password2");
+        studentRepository.save(student);
+        methodsService.registerStudent(student);
+        // Student 3
+        student = new Student();
+        student.setFirstName("Jane");
+        student.setLastName("Pane");
+        student.setUserEmail("g3@gmail.com");
+        student.setAppPassword("password3");
+        studentRepository.save(student);
+        methodsService.registerStudent(student);
+        // Student 4
+        student = new Student();
+        student.setFirstName("Mary");
+        student.setLastName("Kerry");
+        student.setUserEmail("g4@gmail.com");
+        student.setAppPassword("password4");
+        studentRepository.save(student);
+        methodsService.registerStudent(student);
+        // Student 5
+        student = new Student();
+        student.setFirstName("William");
+        student.setLastName("Williamson");
+        student.setUserEmail("g5@gmail.com");
+        student.setAppPassword("password5");
+        studentRepository.save(student);
+        methodsService.registerStudent(student);
+        // Student 6
+        student = new Student();
+        student.setFirstName("Jill");
+        student.setLastName("Hill");
+        student.setUserEmail("g6@gmail.com");
+        student.setAppPassword("password6");
+        studentRepository.save(student);
+        methodsService.registerStudent(student);
+
+        // Admins
+        AppUser user = new AppUser();
+        // Admin 1
+        user.setAppUsername("Brandon@bmail.com");
+        user.setAppPassword("password");
+        user.addRole(appRoleRepository.findAppRoleByRoleName("ADMIN"));
+        appUserRepository.save(user);
+
+        // Admin 1
+        user = new AppUser();
+        user.setAppUsername("Dave@dmail.com");
+        user.setAppPassword("password7");
+        user.addRole(appRoleRepository.findAppRoleByRoleName("ADMIN"));
+        appUserRepository.save(user);
+
 
 
 
