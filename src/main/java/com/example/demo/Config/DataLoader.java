@@ -60,7 +60,7 @@ public class DataLoader implements CommandLineRunner {
         appUserRepository.save(appUser);
         appUser.addRole(appRoleRepository.findAppRoleByRoleName("USER"));
         appUserRepository.save(appUser);
-
+//git
 
 
 
