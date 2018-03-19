@@ -27,15 +27,6 @@ public class AppUser {
     @NotEmpty
     private String appPassword;
 
-    private String userEmail;
-
-    private String firstName;
-
-    private String lastName;
-
-    private String personalImage;
-
-
     @CreationTimestamp
     Timestamp createdAt;
 
@@ -64,21 +55,7 @@ public class AppUser {
         this.appPassword = appPassword;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public Timestamp getCreatedAt() {
         return createdAt;
@@ -88,20 +65,16 @@ public class AppUser {
         this.createdAt = createdAt;
     }
 
-    public String getPersonalImage() {
-        return personalImage;
+    // Connection to Student
+    @OneToOne
+    private Student student;
+
+    public Student getStudent() {
+        return student;
     }
 
-    public void setPersonalImage(String personalImage) {
-        this.personalImage = personalImage;
-    }
-
-    public String getUserEmail() {
-        return userEmail;
-    }
-
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     // Connection to AppRole
