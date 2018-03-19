@@ -28,6 +28,34 @@ public class Student {
     @CreationTimestamp
     Timestamp createdAt;
 
+    private Integer englishLang;
+    // 1= LOW, 2 = MEDIUM, 3 = HIGH
+
+    private Integer employment;
+    // 1= UNEMPLOYED, 2 = UNDEREMPLOYED, 3 = FULLY EMPLOYED
+
+    private Integer computerSkill;
+    // 1= LOW, 2 = MEDIUM, 3 = HIGH
+
+    private Integer itInterest;
+    // 1= LOW, 2 = MEDIUM, 3 = HIGH
+
+    private Integer Education;
+    // 1= NO HS DIPLOMA/GED, 2 = HS DIPLOMA/GED, 3 = SOME COLLEGE, 4 = B.A./B.S, 5 = POSTGRADUATE EXPERIENCE
+    private Boolean majorCS;
+
+    private Boolean legalUS;
+
+    private Integer oopUnderstanding;
+    // 1= LOW, 2 = MEDIUM, 3 = HIGH
+
+    private Integer oolExperience;
+    // 1= LOW, 2 = MEDIUM, 3 = HIGH
+
+    private Integer gradYear;
+
+    private Integer currentEarning;
+
     // Getters and Setters
 
     public long getId() {
@@ -76,6 +104,16 @@ public class Student {
 
     public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
+    }
+
+    // Criteria Getters and Setters
+
+    public Integer getEnglishLang() {
+        return englishLang;
+    }
+
+    public void setEnglishLang(Integer englishLang) {
+        this.englishLang = englishLang;
     }
 
 

@@ -37,7 +37,6 @@ public class BrandonController {
             return "registration";
         }
         else{
-            studentRepository.save(student);
             methodsService.registerStudent(student);
 
             /*if(newUser.getUserType().equals("applicant")) {

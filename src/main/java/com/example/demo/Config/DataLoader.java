@@ -45,7 +45,6 @@ public class DataLoader implements CommandLineRunner {
         student.setLastName("Doe");
         student.setUserEmail("g1@gmail.com");
         student.setAppPassword("password1");
-        studentRepository.save(student);
         methodsService.registerStudent(student);
         // Student 2
         student = new Student();
@@ -53,7 +52,6 @@ public class DataLoader implements CommandLineRunner {
         student.setLastName("Smith");
         student.setUserEmail("g2@gmail.com");
         student.setAppPassword("password2");
-        studentRepository.save(student);
         methodsService.registerStudent(student);
         // Student 3
         student = new Student();
@@ -61,7 +59,6 @@ public class DataLoader implements CommandLineRunner {
         student.setLastName("Pane");
         student.setUserEmail("g3@gmail.com");
         student.setAppPassword("password3");
-        studentRepository.save(student);
         methodsService.registerStudent(student);
         // Student 4
         student = new Student();
@@ -69,7 +66,6 @@ public class DataLoader implements CommandLineRunner {
         student.setLastName("Kerry");
         student.setUserEmail("g4@gmail.com");
         student.setAppPassword("password4");
-        studentRepository.save(student);
         methodsService.registerStudent(student);
         // Student 5
         student = new Student();
@@ -77,7 +73,6 @@ public class DataLoader implements CommandLineRunner {
         student.setLastName("Williamson");
         student.setUserEmail("g5@gmail.com");
         student.setAppPassword("password5");
-        studentRepository.save(student);
         methodsService.registerStudent(student);
         // Student 6
         student = new Student();
@@ -85,7 +80,6 @@ public class DataLoader implements CommandLineRunner {
         student.setLastName("Hill");
         student.setUserEmail("g6@gmail.com");
         student.setAppPassword("password6");
-        studentRepository.save(student);
         methodsService.registerStudent(student);
 
         // Admins
@@ -93,15 +87,13 @@ public class DataLoader implements CommandLineRunner {
         // Admin 1
         user.setAppUsername("Brandon@bmail.com");
         user.setAppPassword("password");
-        user.addRole(appRoleRepository.findAppRoleByRoleName("ADMIN"));
-        appUserRepository.save(user);
+        methodsService.addAdministrator(user);
 
         // Admin 1
         user = new AppUser();
         user.setAppUsername("Dave@dmail.com");
         user.setAppPassword("password7");
-        user.addRole(appRoleRepository.findAppRoleByRoleName("ADMIN"));
-        appUserRepository.save(user);
+        methodsService.addAdministrator(user);
 
 
 
