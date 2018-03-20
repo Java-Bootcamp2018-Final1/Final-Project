@@ -47,8 +47,8 @@ public class MethodsService {
     }
 
     // Apply for program
-    public void applyForProgramme(AppUser appUser, Programme programme){
-        
+    public void applyForProgramme(Student student, Programme programme){
+        programme.addApplied(student);
     }
 
 

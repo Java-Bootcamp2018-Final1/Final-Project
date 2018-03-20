@@ -212,4 +212,18 @@ public class Programme {
     public void setAcceptedStudents(List<Student> acceptedStudents) {
         this.acceptedStudents = acceptedStudents;
     }
+
+    // Applied
+    @ManyToMany
+    private List<Student> appliedStudents;
+
+    public void addApplied(Student student){this.appliedStudents.add(student);}
+
+    public List<Student> getAppliedStudents() {
+        return appliedStudents;
+    }
+
+    public void setAppliedStudents(List<Student> appliedStudents) {
+        this.appliedStudents = appliedStudents;
+    }
 }
