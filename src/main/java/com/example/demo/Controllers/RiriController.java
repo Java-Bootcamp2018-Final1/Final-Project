@@ -12,6 +12,21 @@ public class RiriController {
     public String showReg(Model model){
 
         model.addAttribute("stu", new Student());
+        return "index";
+    }
+
+
+    @RequestMapping("/login")
+    public String showLog(){
+
+        return "login";
+    }
+
+
+    @RequestMapping("/")
+    public String showIndex(Model model){
+
+        model.addAttribute("stu", new Student());
         return "register";
     }
 
