@@ -56,6 +56,7 @@ public class MethodsService {
         y = y + checkEarning(student.getCurrentEarning(),programme.getCurrentEarning());
         if(y >= 1){
             student.addQualified(programme);
+            studentRepository.save(student);
         }
         System.out.println(student.getFirstName() + " " + student.getLastName() + " number for " + programme.getProgramName() + " is " + y );
 
@@ -72,16 +73,20 @@ public class MethodsService {
 
     public int checkEnglish(Integer student,Integer program){
         int x =0;
-        if(student>=program){
-            x=1;
+        if(program != null){
+            if(student>=program){
+                x=1;
+            }
         }
         return x;
     }
 
     public int checkEmployment(Integer student,Integer program){
         int x =0;
-        if(student>=program){
-            x=1;
+        if(program != null){
+            if(student>=program){
+                x=1;
+            }
         }
         return x;
     }
@@ -96,16 +101,20 @@ public class MethodsService {
 
     public int checkIT(Integer student,Integer program){
         int x =0;
-        if(student>=program){
-            x=1;
+        if(program != null){
+            if(student>=program){
+                x=1;
+            }
         }
         return x;
     }
 
     public int checkEducation(Integer student,Integer program){
         int x =0;
-        if(student>=program){
-            x=1;
+        if(program != null){
+            if(student>=program){
+                x=1;
+            }
         }
         return x;
     }
@@ -127,29 +136,37 @@ public class MethodsService {
 
     public int checkOOPUnderstanding(Integer student,Integer program){
         int x =0;
-        if(student>=program){
-            x=1;
+        if(program != null){
+            if(student>=program){
+                x=1;
+            }
         }
         return x;
     }
     public int checkOOLExperience(Integer student,Integer program){
         int x =0;
-        if(student>=program){
-            x=1;
+        if(program != null){
+            if(student>=program){
+                x=1;
+            }
         }
         return x;
     }
     public int checkGraduation(Integer student,Integer program){
         int x =0;
-        if(student>=(localDateTime.getYear()-program)){
-            x=1;
+        if(program != null){
+            if(student>=program){
+                x=1;
+            }
         }
         return x;
     }
     public int checkEarning(Integer student,Integer program){
         int x =0;
-        if(student<=program){
-            x=1;
+        if(program != null){
+            if(student<=program){
+                x=1;
+            }
         }
         return x;
     }

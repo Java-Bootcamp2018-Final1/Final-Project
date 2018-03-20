@@ -196,6 +196,10 @@ public class DataLoader implements CommandLineRunner {
         programme.setCurrentEarning(42000);
         programmeRepository.save(programme);
 
+        // METHOD Testing
+        // Checking qualifications
+        methodsService.qualifyStudents(studentRepository,programmeRepository);
+
 
 
 
