@@ -42,9 +42,5 @@ public String getSavePage(Model model){
 
         return "redirect:/";
     }
-   /* @GetMapping("/login")
-    public String login(){
 
-    return "login";
-    }*/
 }

@@ -52,7 +52,16 @@
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-->
 </nav>
-
+<form th:action="@{/login}" method="post" >
+    <div th:if="${param.error}" style="text-align: center; color: orangered;">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+    <div>
+        <p th:if="${errormessage!=null}" th:text="${errormessage}"></p>
+    </div>
 <div class="wrapper">
     <div class="background" style="background-image: url('/registertemplate/img/landscape.jpg');">
         <div class="filter-black"></div>
@@ -82,7 +91,7 @@
         </div>
     </div>
 </div>
-
+</form>
 
 
 <script src="/registertemplate/js/jquery-1.10.2.js" type="text/javascript"></script>
