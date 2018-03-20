@@ -148,6 +148,24 @@ public class DataLoader implements CommandLineRunner {
         student.setGradYear(2011);
         student.setCurrentEarning(50000);
         methodsService.registerStudent(student);
+        // Student 7
+        student = new Student();
+        student.setFirstName("Fred");
+        student.setLastName("Krueger");
+        student.setUserEmail("g7@gmail.com");
+        student.setAppPassword("password7");
+        student.setEnglishLang(null);
+        student.setEmployment(null);
+        student.setComputerSkill(null);
+        student.setItInterest(null);
+        student.setEducation(null);
+        student.setMajorCS(null);
+        student.setLegalUS(null);
+        student.setOopUnderstanding(null);
+        student.setOolExperience(null);
+        student.setGradYear(null);
+        student.setCurrentEarning(null);
+        methodsService.registerStudent(student);
 
         // ADMINS
         AppUser user = new AppUser();

@@ -199,9 +199,7 @@ public class Student {
     // CONSTRUCTORS
 
     public Student() {
-        this.qualifiedProgram = new ArrayList<>();
-        this.approvedProgram = new ArrayList<>();
-        this.acceptedProgram = new ArrayList<>();
+
     }
 
     // CONNECTIONS

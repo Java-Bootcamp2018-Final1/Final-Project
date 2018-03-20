@@ -87,7 +87,7 @@ public class MethodsService {
     // Start of the individual value checkers
     public int checkEnglish(Integer student,Integer program){
         int x =0;
-        if(program != null){
+        if((program != null) && (student !=null)){
             if(student>=program){
                 x=1;
             }
@@ -97,7 +97,7 @@ public class MethodsService {
 
     public int checkEmployment(Integer student,Integer program){
         int x =0;
-        if(program != null){
+        if((program != null) && (student !=null)){
             if(student<=program){
                 x=1;
             }
@@ -107,15 +107,17 @@ public class MethodsService {
 
     public int checkComputer(Integer student,Integer program){
         int x =0;
-        if(student>=program){
-            x=1;
+        if((program != null) && (student !=null)){
+            if(student>=program){
+                x=1;
+            }
         }
         return x;
     }
 
     public int checkIT(Integer student,Integer program){
         int x =0;
-        if(program != null){
+        if((program != null) && (student !=null)){
             if(student>=program){
                 x=1;
             }
@@ -125,7 +127,7 @@ public class MethodsService {
 
     public int checkEducation(Integer student,Integer program){
         int x =0;
-        if(program != null){
+        if((program != null) && (student !=null)){
             if(student>=program){
                 x=1;
             }
@@ -135,22 +137,26 @@ public class MethodsService {
 
     public int checkMajor(Boolean student,Boolean program){
         int x =0;
-        if(student==program){
-            x=1;
+        if((program != null) && (student !=null)){
+            if(student==program){
+                x=1;
+            }
         }
         return x;
     }
     public int checkUSLegal(Boolean student,Boolean program){
         int x =0;
-        if(student==program){
-            x=1;
+        if((program != null) && (student !=null)){
+            if(student==program){
+                x=1;
+            }
         }
         return x;
     }
 
     public int checkOOPUnderstanding(Integer student,Integer program){
         int x =0;
-        if(program != null){
+        if((program != null) && (student !=null)){
             if(student>=program){
                 x=1;
             }
@@ -159,7 +165,7 @@ public class MethodsService {
     }
     public int checkOOLExperience(Integer student,Integer program){
         int x =0;
-        if(program != null){
+        if((program != null) && (student !=null)){
             if(student>=program){
                 x=1;
             }
@@ -168,7 +174,7 @@ public class MethodsService {
     }
     public int checkGraduation(Integer student,Integer program){
         int x =0;
-        if(program != null){
+        if((program != null) && (student !=null)){
             if(student>=program){
                 x=1;
             }
@@ -177,7 +183,7 @@ public class MethodsService {
     }
     public int checkEarning(Integer student,Integer program){
         int x =0;
-        if(program != null){
+        if((program != null) && (student !=null)){
             if(student<=program){
                 x=1;
             }

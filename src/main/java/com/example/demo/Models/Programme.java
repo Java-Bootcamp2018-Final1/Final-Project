@@ -1,6 +1,7 @@
 package com.example.demo.Models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -45,6 +46,9 @@ public class Programme {
 
 
     public Programme() {
+        this.qualifiedStudents = new ArrayList<>();
+        this.approvedStudents = new ArrayList<>();
+        this.acceptedStudents = new ArrayList<>();
     }
 
     public long getId() {
