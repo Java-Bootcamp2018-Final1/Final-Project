@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class RiriController {
 
-    @RequestMapping("/")
+    @RequestMapping("/register")
     public String showReg(Model model){
 
         model.addAttribute("stu", new Student());
-        return "index";
+        return "register";
     }
 
 
@@ -27,7 +27,7 @@ public class RiriController {
     public String showIndex(Model model){
 
         model.addAttribute("stu", new Student());
-        return "register";
+        return "index";
     }
 
 }
