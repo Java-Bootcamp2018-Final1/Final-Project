@@ -14,6 +14,12 @@ public class Programme {
 
     private String programDescription;
 
+    private String criteriaDescription;
+
+    private Integer numberApplicants;
+
+    private Integer numberAccepted;
+
     private Integer englishLang;
     // 1= LOW, 2 = MEDIUM, 3 = HIGH
 
@@ -73,6 +79,30 @@ public class Programme {
 
     public void setProgramDescription(String programDescription) {
         this.programDescription = programDescription;
+    }
+
+    public String getCriteriaDescription() {
+        return criteriaDescription;
+    }
+
+    public void setCriteriaDescription(String criteriaDescription) {
+        this.criteriaDescription = criteriaDescription;
+    }
+
+    public Integer getNumberApplicants() {
+        return numberApplicants;
+    }
+
+    public void setNumberApplicants(Integer numberApplicants) {
+        this.numberApplicants = numberApplicants;
+    }
+
+    public Integer getNumberAccepted() {
+        return numberAccepted;
+    }
+
+    public void setNumberAccepted(Integer numberAccepted) {
+        this.numberAccepted = numberAccepted;
     }
 
     public Integer getEnglishLang() {
@@ -211,5 +241,19 @@ public class Programme {
 
     public void setAcceptedStudents(List<Student> acceptedStudents) {
         this.acceptedStudents = acceptedStudents;
+    }
+
+    // Applied
+    @ManyToMany
+    private List<Student> appliedStudents;
+
+    public void addApplied(Student student){this.appliedStudents.add(student);}
+
+    public List<Student> getAppliedStudents() {
+        return appliedStudents;
+    }
+
+    public void setAppliedStudents(List<Student> appliedStudents) {
+        this.appliedStudents = appliedStudents;
     }
 }

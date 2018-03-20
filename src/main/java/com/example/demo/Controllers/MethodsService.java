@@ -35,6 +35,11 @@ public class MethodsService {
             appUserRepository.save(newUser);
             student.setAppUser(newUser);
             studentRepository.save(student);
+        }else{
+            AppUser appUser = student.getAppUser();
+            appUser.setAppUsername(student.getUserEmail());
+            appUser.setAppPassword(student.getAppPassword());
+            appUserRepository.save(appUser);
         }
     }
 
@@ -46,11 +51,25 @@ public class MethodsService {
         appUserRepository.save(newUser);
     }
 
-    // Apply for program
-    public void applyForProgramme(AppUser appUser, Programme programme){
-        
+    // Student Only Method: Apply for program
+    public void applyForProgramme(Student student, Programme programme){
+        programme.addApplied(student);
+        programme.setNumberApplicants(programme.getNumberApplicants()+1);
+        programmeRepository.save(programme);
     }
 
+    // Admin only method: for approving students
+    public void approveStudent(Student student,Programme programme){
+        programme.addApproved(student);
+        programmeRepository.save(programme);
+    }
+
+    // Student Only Method: for accepting a program
+    public void acceptProgram(Student student, Programme programme){
+        programme.addAccepted(student);
+        programme.setNumberAccepted(programme.getNumberAccepted()+1);
+        programmeRepository.save(programme);
+    }
 
     // Checks to see if A Student Qualifies for a program
     public void qualifyForProgram(Student student,Programme programme){

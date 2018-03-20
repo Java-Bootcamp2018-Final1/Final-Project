@@ -5,10 +5,12 @@ import com.example.demo.Repositories.*;
 import com.example.demo.Config.*;
 import com.example.demo.Controllers.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
@@ -38,31 +40,82 @@ public class BrandonController {
         }
         else{
             methodsService.registerStudent(student);
-
-            /*if(newUser.getUserType().equals("applicant")) {
-                //Create a new ordinary user
-                model.addAttribute(newUser.getAppUsername() + " created");
-                appUserRepository.save(newUser);
-                AppRole r = appRoleRepository.findAppRoleByRoleName("APPLICANT");
-                newUser.addRole(r);
-                appUserRepository.save(newUser);
-                siteApplicants = new SiteApplicants();
-                siteApplicants.addCredentials(newUser);
-                siteApplicantsRepository.save(siteApplicants);
-            }else if(newUser.getUserType().equals("employer")){
-                model.addAttribute(newUser.getAppUsername() + " created");
-                appUserRepository.save(newUser);
-                AppRole r = appRoleRepository.findAppRoleByRoleName("EMPLOYER");
-                newUser.addRole(r);
-                appUserRepository.save(newUser);
-            }else if(newUser.getUserType().equals("recruiter")){
-                model.addAttribute(newUser.getAppUsername() + " created");
-                appUserRepository.save(newUser);
-                AppRole r = appRoleRepository.findAppRoleByRoleName("RECRUITER");
-                newUser.addRole(r);
-                appUserRepository.save(newUser);
-            }*/
             return "redirect:/";
         }
     }
+
+    // This Method returns a model containing a list of all students who have applied for a program
+    public String showAppliedStudentsForProgram(@PathVariable("id") long id, Model model){
+        Programme programme = programmeRepository.findOne(id);
+        model.addAttribute("appliedList", programme.getAppliedStudents());
+        return "";
+    }
+
+    // This Method returns a model containg a list of all programs
+    public String showListPrograms(Model model){
+        model.addAttribute("programlist",programmeRepository.findAll());
+        return "";
+    }
+
+    // This Method returns a model containing a list of Programs Suggested for the User
+    public String suggestPrograms(Model model, Authentication authentication){
+        AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
+        Student student = appUser.getStudent();
+        model.addAttribute("listprograms", student.getQualifiedProgram());
+        return "";
+    }
+
+    // This Method allows a user to accept an admission offer for a program
+    public String acceptProgramOffer(@PathVariable("id") long id, Authentication authentication){
+        AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
+        Student student = appUser.getStudent();
+        Programme programme =programmeRepository.findOne(id);
+        methodsService.acceptProgram(student,programme);
+        return "";
+    }
+
+    // This Method allows a user to apply for a program
+    public String applyForAProgram(@PathVariable("id")long id,Authentication authentication){
+        AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
+        Student student = appUser.getStudent();
+        Programme programme =programmeRepository.findOne(id);
+        methodsService.applyForProgramme(student,programme);
+        return "";
+    }
+
+    // This Method returns a model showing a user programs that they have been approved for
+    public String showApprovedPrograms(Model model, Authentication authentication){
+        AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
+        Student student = appUser.getStudent();
+        model.addAttribute("listprograms", student.getApprovedProgram());
+        return "";
+    }
+
+    // This method allows an Admin to add another Admin
+    public String addAnAdmin(Model model){
+        model.addAttribute("newAdmin", new AppUser());
+        return "";
+    }
+
+    //This method processes and saves an added Admin
+    public String processAddedAdmin(@Valid @ModelAttribute("newAdmin") AppUser appUser, BindingResult result){
+        methodsService.addAdministrator(appUser);
+        return "";
+    }
+
+    //This method allows an Admin to Approve a student for a program
+    public String approveStudentForProgram(@PathVariable("id1") long id1,@PathVariable("id2")long id2){
+        Student student = studentRepository.findOne(id1);
+        Programme programme = programmeRepository.findOne(id2);
+        methodsService.approveStudent(student,programme);
+        return "";
+    }
+
+    // This Method returns a model showing students who have accepted admission to a program
+    public String showAcceptedStudentsForProgram(@PathVariable("id") long id,Model model){
+        Programme programme =programmeRepository.findOne(id);
+        model.addAttribute(programme.getAcceptedStudents());
+        return "";
+    }
+
 }

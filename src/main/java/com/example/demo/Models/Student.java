@@ -271,4 +271,18 @@ public class Student {
     public void setAcceptedProgram(List<Programme> acceptedProgram) {
         this.acceptedProgram = acceptedProgram;
     }
+
+    // Applied
+    @ManyToMany(mappedBy = "appliedStudents")
+    private List<Programme> appliedProgram;
+
+    public void addApplied(Programme programme){this.appliedProgram.add(programme);}
+
+    public List<Programme> getAppliedProgram() {
+        return appliedProgram;
+    }
+
+    public void setAppliedProgram(List<Programme> appliedProgram) {
+        this.appliedProgram = appliedProgram;
+    }
 }
