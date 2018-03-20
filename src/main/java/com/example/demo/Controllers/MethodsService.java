@@ -5,6 +5,8 @@ import com.example.demo.Repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+
 @Service
 public class MethodsService {
     @Autowired
@@ -16,6 +18,8 @@ public class MethodsService {
     StudentRepository studentRepository;
     @Autowired
     ProgrammeRepository programmeRepository;
+
+    LocalDateTime localDateTime;
 
     public void registerStudent(Student student){
         studentRepository.save(student);
@@ -137,7 +141,7 @@ public class MethodsService {
     }
     public int checkGraduation(Integer student,Integer program){
         int x =0;
-        if(student>=program){
+        if(student>=(localDateTime.getYear()-program)){
             x=1;
         }
         return x;
