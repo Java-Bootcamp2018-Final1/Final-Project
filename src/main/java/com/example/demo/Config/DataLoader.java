@@ -185,6 +185,9 @@ public class DataLoader implements CommandLineRunner {
         // Program 1
         programme.setProgramName("Hiring in Tech");
         programme.setProgramDescription("Tech Hiring");
+        programme.setCriteriaDescription("");
+        programme.setNumberAccepted(0);
+        programme.setNumberApplicants(0);
         programme.setEnglishLang(3);
         programme.setEmployment(1);
         programme.setComputerSkill(2);
@@ -201,6 +204,9 @@ public class DataLoader implements CommandLineRunner {
         programme = new Programme();
         programme.setProgramName("Promising the Future");
         programme.setProgramDescription("Future Promising");
+        programme.setCriteriaDescription("");
+        programme.setNumberAccepted(0);
+        programme.setNumberApplicants(0);
         programme.setEnglishLang(null);
         programme.setEmployment(null);
         programme.setComputerSkill(1);
