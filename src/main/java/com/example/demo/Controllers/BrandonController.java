@@ -66,7 +66,7 @@ public class BrandonController {
     }
 
     // This Method allows a user to accept an admission offer for a program
-    public String acceptedProgramOffer(@PathVariable("id") long id, Authentication authentication){
+    public String acceptProgramOffer(@PathVariable("id") long id, Authentication authentication){
         AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
         Student student = appUser.getStudent();
         Programme programme =programmeRepository.findOne(id);
