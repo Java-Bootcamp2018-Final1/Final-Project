@@ -1,4 +1,3 @@
-<!doctype html>
 <html lang="en"><head>
     <meta charset="utf-8">
     <link href="/registertemplate/img/favicon.ico" rel="icon" type="image/png">
@@ -54,7 +53,7 @@
 </nav>
 
 <div class="wrapper">
-    <div class="background" style="background-image: url('/registertemplate/img/blue.jpg');">
+    <div class="background" style="background-image: url('/registertemplate/img/landscape.jpg');">
         <div class="filter-black"></div>
         <div class="container">
             <div class="row">
@@ -87,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-5 col-xs-12">
+                <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
                     <div class="demo-card">
                         <h3 class="title text-center">Register</h3>
                         <div class="social">
@@ -115,64 +114,64 @@
                         </form>-->
 
 
-                        <form method="post" action="#" th:action="@{/}" th:object="${stu}">
+                        <form action="/" method="post">
                             <!--<form method="post" action="#" th:action="@{/register}" th:object="${newuser}">-->
 
                             <div class="card card-plain">
                                 <div class="content">
-                                    <input type="hidden" th:field="*{id}">
+                                    <input type="hidden" id="id" name="id" value="0">
                                     <div class="form-group">
-                                        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"> First Name  error </span> </strong></mark>
-                                        <input type="text" id="firstName" placeholder="First Name" th:field="*{firstName}"/><br/>
+
+                                        <input id="firstName" placeholder="First Name" type="text" name="firstName" value=""><br>
                                     </div>
                                     <div class="form-group">
-                                        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"> Last Name  error </span> </strong></mark>
-                                        <input type="text" id="lastName" placeholder="Last Name" th:field="*{lastName}"/><br/>
+
+                                        <input id="lastName" placeholder="Last Name" type="text" name="lastName" value=""><br>
                                     </div>
                                     <div class="form-group">
-                                        <span th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"> User Name  error </span></strong></mark>
-                                        <input type="text" id="userEmail" placeholder="userName" th:field="*{userEmail}"/><br/>
+
+                                        <input id="userEmail" placeholder="userName" type="text" name="userEmail" value=""><br>
                                     </div>
 
                                     <div class="form-group">
-                                        <span th:if="${#fields.hasErrors('appPassword')}" th:errors="*{appPassword}"> password  error </span> </strong></mark>
-                                        <input type="text" id="password" placeholder="password" th:field="*{appPassword}"/><br/>
+
+                                        <input id="password" placeholder="password" type="text" name="appPassword" value=""><br>
                                     </div>
 
 
                                     <div class="form-group">
-                                        <span th:if="${#fields.hasErrors('englishLang')}" th:errors="*{englishLang}"> English Lang  error </span></strong></mark>
+
 
                                         <h6>English Language <span class="icon-danger">*</span></h6>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{englishLang}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1" checked="">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="englishLang" type="radio" value="option1">
                                             <i></i>Yes
                                         </label>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{englishLang}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="englishLang" type="radio" value="option1">
                                             <i></i>Some
                                         </label>
                                         <label class="radio checked">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{englishLang}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="option1" >
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios2" name="englishLang" type="radio" value="option1">
                                             <i></i>No
                                         </label>
                                     </div>
 
 
                                     <div class="form-group">
-                                        <span th:if="${#fields.hasErrors('employment')}" th:errors="*{employment}"> Employement  error </span></strong></mark>
+
 
                                         <h6>Employment Status <span class="icon-danger">*</span></h6>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{employment}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1" checked="">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="employment" type="radio" value="option1">
                                             <i></i>Unemployed
                                         </label>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{employment}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="employment" type="radio" value="option1">
                                             <i></i>Underemployed
                                         </label>
                                         <label class="radio checked">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{employment}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="option1" >
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios2" name="employment" type="radio" value="option1">
                                             <i></i>Fully Employed
                                         </label>
                                     </div>
@@ -180,38 +179,38 @@
 
 
                                     <div class="form-group">
-                                    <span th:if="${#fields.hasErrors('computerSkill')}" th:errors="*{computerSkill}">   Computer skills error </span></strong></mark>
-
-                                    <h6>Comfort with computer <span class="icon-danger">*</span></h6>
-                                    <label class="radio">
-                                        <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{computerSkill}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1" checked="">
-                                        <i></i>Low
-                                    </label>
-                                    <label class="radio">
-                                        <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{computerSkill}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1">
-                                        <i></i>Medium
-                                    </label>
-                                    <label class="radio checked">
-                                        <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{computerSkill}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="option1" >
-                                        <i></i>High
-                                    </label>
-                                </div>
 
 
-                                    <div class="form-group">
-                                        <span th:if="${#fields.hasErrors('itInterest')}" th:errors="*{itInterest}"> It interest  error </span></strong></mark>
-
-                                        <h6>IT Interest <span class="icon-danger">*</span></h6>
+                                        <h6>Comfort with computer <span class="icon-danger">*</span></h6>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{itInterest}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1" checked="">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="computerSkill" type="radio" value="option1">
                                             <i></i>Low
                                         </label>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{itInterest}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="computerSkill" type="radio" value="option1">
                                             <i></i>Medium
                                         </label>
                                         <label class="radio checked">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{itInterest}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="option1" >
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios2" name="computerSkill" type="radio" value="option1">
+                                            <i></i>High
+                                        </label>
+                                    </div>
+
+
+                                    <div class="form-group">
+
+
+                                        <h6>IT Interest <span class="icon-danger">*</span></h6>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="itInterest" type="radio" value="option1">
+                                            <i></i>Low
+                                        </label>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="itInterest" type="radio" value="option1">
+                                            <i></i>Medium
+                                        </label>
+                                        <label class="radio checked">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios2" name="itInterest" type="radio" value="option1">
                                             <i></i>High
                                         </label>
                                     </div>
@@ -219,56 +218,56 @@
 
 
                                     <div class="form-group">
-                                        <span th:if="${#fields.hasErrors('Education')}" th:errors="*{Education}"> Education  error </span></strong></mark>
+
 
                                         <h6>Education <span class="icon-danger">*</span></h6>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{Education}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1" checked="">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="Education" type="radio" value="option1">
                                             <i></i>NO Highshool diploma/GED
                                         </label>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{Education}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="Education" type="radio" value="option1">
                                             <i></i>Highschool diploma/GED
                                         </label>
                                         <label class="radio checked">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{Education}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="option1" >
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios2" name="Education" type="radio" value="option1">
                                             <i></i>Some College
                                         </label>
                                         <label class="radio checked">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{Education}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="option1" >
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios2" name="Education" type="radio" value="option1">
                                             <i></i>4 Year degree
                                         </label>
                                         <label class="radio checked">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{Education}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="option1" >
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios2" name="Education" type="radio" value="option1">
                                             <i></i>Postgraduate Experience
                                         </label>
                                     </div>
 
                                     <div class="form-group">
-                                        <span th:if="${#fields.hasErrors('majorCS')}" th:errors="*{majorCS}"> Error in Major </span></strong></mark>
+
 
                                         <h6>Major in Computer Science  <span class="icon-danger">*</span></h6>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{majorCS}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1" checked="">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="majorCS" type="radio" value="option1">
                                             <i></i>Yes
                                         </label>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{majorCS}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="majorCS" type="radio" value="option1">
                                             <i></i>No
                                         </label>
 
                                     </div>
 
                                     <div class="form-group">
-                                        <span th:if="${#fields.hasErrors('legalUS')}" th:errors="*{legalUS}"> Error in legal status </span></strong></mark>
+
 
                                         <h6>US Legal  <span class="icon-danger">*</span></h6>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{legalUS}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1" checked="">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="legalUS" type="radio" value="option1">
                                             <i></i>Yes
                                         </label>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{legalUS}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="legalUS" type="radio" value="option1">
                                             <i></i>No
                                         </label>
 
@@ -276,19 +275,19 @@
 
 
                                     <div class="form-group">
-                                        <span th:if="${#fields.hasErrors('oopUnderstanding')}" th:errors="*{oopUnderstanding}"> OOP  error </span></strong></mark>
+
 
                                         <h6>OOP Understanding <span class="icon-danger">*</span></h6>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{oopUnderstanding}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1" checked="">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="oopUnderstanding" type="radio" value="option1">
                                             <i></i>Low
                                         </label>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{oopUnderstanding}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="oopUnderstanding" type="radio" value="option1">
                                             <i></i>Medium
                                         </label>
                                         <label class="radio checked">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{oopUnderstanding}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="option1" >
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios2" name="oopUnderstanding" type="radio" value="option1">
                                             <i></i>High
                                         </label>
                                     </div>
@@ -296,39 +295,39 @@
 
 
                                     <div class="form-group">
-                                        <span th:if="${#fields.hasErrors('oopUnderstanding')}" th:errors="*{oolExperience}"> OOL  error </span></strong></mark>
+
 
                                         <h6>OOL Experience<span class="icon-danger">*</span></h6>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{oolExperience}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1" checked="">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="oolExperience" type="radio" value="option1">
                                             <i></i>Low
                                         </label>
                                         <label class="radio">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{oolExperience}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="option1">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios1" name="oolExperience" type="radio" value="option1">
                                             <i></i>Medium
                                         </label>
                                         <label class="radio checked">
-                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{oolExperience}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="option1" >
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input data-toggle="radio" id="optionsRadios2" name="oolExperience" type="radio" value="option1">
                                             <i></i>High
                                         </label>
                                     </div>
 
                                     <div class="form-group">
-                                        <span th:if="${#fields.hasErrors('gradYear')}" th:errors="*{gradYear}"> graduation year  error </span> </strong></mark>
-                                        <input type="number" id="gradYear" placeholder="Graduation year" th:field="*{gradYear}"/><br/>
+
+                                        <input id="gradYear" placeholder="Graduation year" type="number" name="gradYear" value=""><br>
                                     </div>
 
                                     <div class="form-group">
-                                        <span th:if="${#fields.hasErrors('currentEarning')}" th:errors="*{currentEarning}"> current Earning error </span> </strong></mark>
-                                        <input type="number" id="earning" placeholder="current earning" th:field="*{currentEarning}"/><br/>
+
+                                        <input id="earning" placeholder="current earning" type="number" name="currentEarning" value=""><br>
                                     </div>
 
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-fill btn-danger btn-wd">Register</button>
+                                    <button class="btn btn-fill btn-danger btn-wd" type="submit">Register</button>
                                 </div>
                             </div>
-                        </form>
+                            <input type="hidden" name="_csrf" value="bcf6a040-4024-48e3-bf19-39f785ea9551"></form>
 
                         <div class="login">
                             <p>Already have an account? <a>Log in</a>.</p>
