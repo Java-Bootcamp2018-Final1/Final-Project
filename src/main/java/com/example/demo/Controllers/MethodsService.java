@@ -21,19 +21,24 @@ public class MethodsService {
 
     LocalDateTime localDateTime;
 
+    // Creates and saves a new user as a student
     public void registerStudent(Student student){
         studentRepository.save(student);
-        AppUser newUser= new AppUser();
-        newUser.setAppUsername(student.getUserEmail());
-        newUser.setAppPassword(student.getAppPassword());
-        newUser.setStudent(student);
-        appUserRepository.save(newUser);
-        AppRole r = appRoleRepository.findAppRoleByRoleName("STUDENT");
-        newUser.addRole(r);
-        appUserRepository.save(newUser);
-        student.setAppUser(newUser);
-        studentRepository.save(student);
+        if(student.getAppUser() == null) {
+            AppUser newUser = new AppUser();
+            newUser.setAppUsername(student.getUserEmail());
+            newUser.setAppPassword(student.getAppPassword());
+            newUser.setStudent(student);
+            appUserRepository.save(newUser);
+            AppRole r = appRoleRepository.findAppRoleByRoleName("STUDENT");
+            newUser.addRole(r);
+            appUserRepository.save(newUser);
+            student.setAppUser(newUser);
+            studentRepository.save(student);
+        }
     }
+
+    // Admin only method for adding other admins
     public void addAdministrator(AppUser newUser){
         appUserRepository.save(newUser);
         AppRole r = appRoleRepository.findAppRoleByRoleName("ADMIN");
@@ -41,6 +46,13 @@ public class MethodsService {
         appUserRepository.save(newUser);
     }
 
+    // Apply for program
+    public void applyForProgramme(AppUser appUser, Programme programme){
+        
+    }
+
+
+    // Checks to see if A Student Qualifies for a program
     public void qualifyForProgram(Student student,Programme programme){
         int y = 0;
         y = y + checkEnglish(student.getEnglishLang(),programme.getEnglishLang());
@@ -55,22 +67,24 @@ public class MethodsService {
         y = y + checkGraduation(student.getGradYear(),programme.getGradYear());
         y = y + checkEarning(student.getCurrentEarning(),programme.getCurrentEarning());
         if(y >= 1){
-            student.addQualified(programme);
-            studentRepository.save(student);
+            programme.addQualified(student);
+            programmeRepository.save(programme);
         }
         System.out.println(student.getFirstName() + " " + student.getLastName() + " number for " + programme.getProgramName() + " is " + y );
 
     }
 
+    // Checks the qualifications for all students for all programs
     public void qualifyStudents(StudentRepository studentRepository1,ProgrammeRepository programmeRepository1){
-        for (Student student:studentRepository1.findAll()) {
-            for (Programme programme:programmeRepository1.findAll()) {
+        for (Programme programme:programmeRepository1.findAll()) {
+            for (Student student:studentRepository1.findAll()) {
                 qualifyForProgram(student,programme);
             }
-        }
 
+        }
     }
 
+    // Start of the individual value checkers
     public int checkEnglish(Integer student,Integer program){
         int x =0;
         if(program != null){
@@ -84,7 +98,7 @@ public class MethodsService {
     public int checkEmployment(Integer student,Integer program){
         int x =0;
         if(program != null){
-            if(student>=program){
+            if(student<=program){
                 x=1;
             }
         }
@@ -170,4 +184,5 @@ public class MethodsService {
         }
         return x;
     }
+    // End of the Individual value checkers
 }

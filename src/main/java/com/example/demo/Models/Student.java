@@ -227,7 +227,7 @@ public class Student {
     }
 
     // Qualified
-    @ManyToMany
+    @ManyToMany (mappedBy = "qualifiedStudents")
     private List<Programme> qualifiedProgram;
 
     public void addQualified(Programme programme){
@@ -243,7 +243,7 @@ public class Student {
     }
 
     // Approved
-    @ManyToMany
+    @ManyToMany (mappedBy = "approvedStudents")
     private List<Programme> approvedProgram;
 
     public void addApproved(Programme programme){
@@ -259,7 +259,7 @@ public class Student {
     }
 
     // Accepted
-    @ManyToMany
+    @ManyToMany (mappedBy = "acceptedStudents")
     private List<Programme> acceptedProgram;
 
     public void addAccepted(Programme programme){
