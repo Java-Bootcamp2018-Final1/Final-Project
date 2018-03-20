@@ -162,7 +162,7 @@ public class Programme {
     // CONNECTIONS
     // Connections to Student
     // Qualified
-    @ManyToMany (mappedBy = "qualifiedProgram")
+    @ManyToMany
     private List<Student> qualifiedStudents;
 
     public void addQualified(Student student){
@@ -178,7 +178,7 @@ public class Programme {
     }
 
     // Approved
-    @ManyToMany(mappedBy = "approvedProgram")
+    @ManyToMany
     private List<Student> approvedStudents;
 
     public void addApproved(Student student){
@@ -194,7 +194,7 @@ public class Programme {
     }
 
     // Accepted
-    @ManyToMany(mappedBy = "acceptedProgram")
+    @ManyToMany
     private List<Student> acceptedStudents;
 
     public void addAccepted(Student student){
