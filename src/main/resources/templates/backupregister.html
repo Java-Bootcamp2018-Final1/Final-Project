@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <link href="/registertemplate/img/favicon.ico" rel="icon" type="image/png">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+
+    <title>Paper Kit by Creative Tim</title>
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="width=device-width" name="viewport">
+
+    <link href="/registertemplate/bootstrap3/css/bootstrap.css" rel="stylesheet">
+    <link href="/registertemplate/css/ct-paper.css" rel="stylesheet">
+    <link href="/registertemplate/css/demo.css" rel="stylesheet">
+    <link href="/registertemplate/css/examples.css" rel="stylesheet">
+
+    <!--     Fonts and icons     -->
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+
+
+</head><body class="full-screen register" style="">
+<nav class="navbar navbar-ct-transparent navbar-fixed-top" id="register-navbar" role="navigation-demo">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button class="navbar-toggle" data-target="#navigation-example-2" data-toggle="collapse" type="button">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">BAR Program Matcher</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navigation-example-2">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="btn btn-simple" href="/login">Login</a>
+                </li>
+                <li>
+                    <a class="btn btn-simple" href="/">Home</a>
+                </li>
+                <li>
+                    <a class="btn btn-simple" href="https://twitter.com/CreativeTim" target="_blank"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                    <a class="btn btn-simple" href="https://www.facebook.com/CreativeTim" target="_blank"><i class="fa fa-facebook"></i></a>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-->
+</nav>
+
+<div class="wrapper">
+    <div class="background" style="background-image: url('/registertemplate/img/blue.jpg');">
+        <div class="filter-black"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-1 col-sm-7 col-xs-12">
+                    <div class="info info-horizontal">
+                        <div class="icon">
+                            <i class="fa fa-umbrella"></i>
+                        </div>
+                        <div class="description">
+
+
+                        </div>
+                    </div>
+                    <div class="info info-horizontal">
+                        <div class="icon icon-primary">
+                            <i class="fa fa-map-signs"></i>
+                        </div>
+                        <div class="description">
+
+
+                        </div>
+                    </div>
+                    <div class="info info-horizontal">
+                        <div class="icon icon-info">
+                            <i class="fa fa-user-secret"></i>
+                        </div>
+                        <div class="description">
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-5 col-xs-12">
+                    <div class="demo-card">
+                        <h3 class="title text-center">Register</h3>
+                        <div class="social">
+                            <button class="btn btn-fill btn-icon btn-facebook" href="#"><i class="fa fa-facebook"></i></button>
+                            <button class="btn btn-fill btn-icon btn-google" href="#"><i class="fa fa-google"></i></button>
+                            <button class="btn btn-fill btn-icon btn-twitter" href="#"><i class="fa fa-twitter"></i></button>
+                        </div>
+
+                        <div class="division">
+                            <div class="line l"></div>
+                            <span>or</span>
+                            <div class="line r"></div>
+                        </div>
+                        <!--<form class="register-form">
+                            <input class="form-control" placeholder="Email" type="text">
+
+                            <input class="form-control" placeholder="Password" type="password">
+
+                            <input class="form-control" placeholder="Confirm Password" type="password">
+
+                            <button class="btn btn-fill btn-block">Register</button>
+
+
+
+                        </form>-->
+
+
+                        <form method="post" action="#" th:action="@{/save}" th:object="${stu}">
+                            <!--<form method="post" action="#" th:action="@{/register}" th:object="${newuser}">-->
+
+                            <div class="card card-plain">
+                                <div class="content">
+                                    <input type="hidden" th:field="*{id}">
+                                    <div class="form-group">
+                                        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"> First Name  error </span> </strong></mark>
+                                        <input type="text" id="firstName" placeholder="First Name" th:field="*{firstName}"/><br/>
+                                    </div>
+                                    <div class="form-group">
+                                        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"> Last Name  error </span> </strong></mark>
+                                        <input type="text" id="lastName" placeholder="Last Name" th:field="*{lastName}"/><br/>
+                                    </div>
+                                    <div class="form-group">
+                                        <span th:if="${#fields.hasErrors('userEmail')}" th:errors="*{userEmail}"> User Name  error </span></strong></mark>
+                                        <input type="text" id="userEmail" placeholder="userName" th:field="*{userEmail}"/><br/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <span th:if="${#fields.hasErrors('appPassword')}" th:errors="*{appPassword}"> password  error </span> </strong></mark>
+                                        <input type="text" id="password" placeholder="password" th:field="*{appPassword}"/><br/>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <span th:if="${#fields.hasErrors('englishLang')}" th:errors="*{englishLang}"> English Lang  error </span></strong></mark>
+
+                                        <h6>English Language <span class="icon-danger">*</span></h6>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{englishLang}" name="optionsRadios1" data-toggle="radio" id="optionsRadios1" value="1">
+                                            <i></i>Yes
+                                        </label>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{englishLang}" name="optionsRadios2" data-toggle="radio" id="optionsRadios2" value="2">
+                                            <i></i>Some
+                                        </label>
+                                        <label class="radio checked">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{englishLang}" name="optionsRadios3" data-toggle="radio" id="optionsRadios3" value="3" >
+                                            <i></i>No
+                                        </label>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <span th:if="${#fields.hasErrors('employment')}" th:errors="*{employment}"> Employement  error </span></strong></mark>
+
+                                        <h6>Employment Status <span class="icon-danger">*</span></h6>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{employment}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="1" >
+                                            <i></i>Unemployed
+                                        </label>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{employment}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="2">
+                                            <i></i>Underemployed
+                                        </label>
+                                        <label class="radio checked">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{employment}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="3" >
+                                            <i></i>Fully Employed
+                                        </label>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                    <span th:if="${#fields.hasErrors('computerSkill')}" th:errors="*{computerSkill}">   Computer skills error </span></strong></mark>
+
+                                    <h6>Comfort with computer <span class="icon-danger">*</span></h6>
+                                    <label class="radio">
+                                        <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{computerSkill}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="1" checked="">
+                                        <i></i>Low
+                                    </label>
+                                    <label class="radio">
+                                        <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{computerSkill}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="2">
+                                        <i></i>Medium
+                                    </label>
+                                    <label class="radio checked">
+                                        <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{computerSkill}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="3" >
+                                        <i></i>High
+                                    </label>
+                                </div>
+
+
+                                    <div class="form-group">
+                                        <span th:if="${#fields.hasErrors('itInterest')}" th:errors="*{itInterest}"> It interest  error </span></strong></mark>
+
+                                        <h6>IT Interest <span class="icon-danger">*</span></h6>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{itInterest}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="1" checked="">
+                                            <i></i>Low
+                                        </label>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{itInterest}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="2">
+                                            <i></i>Medium
+                                        </label>
+                                        <label class="radio checked">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{itInterest}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="1" >
+                                            <i></i>High
+                                        </label>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <span th:if="${#fields.hasErrors('Education')}" th:errors="*{Education}"> Education  error </span></strong></mark>
+
+                                        <h6>Education <span class="icon-danger">*</span></h6>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{Education}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="1" checked="">
+                                            <i></i>NO Highshool diploma/GED
+                                        </label>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{Education}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="2">
+                                            <i></i>Highschool diploma/GED
+                                        </label>
+                                        <label class="radio checked">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{Education}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="3" >
+                                            <i></i>Some College
+                                        </label>
+                                        <label class="radio checked">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{Education}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="4" >
+                                            <i></i>4 Year degree
+                                        </label>
+                                        <label class="radio checked">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{Education}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="5" >
+                                            <i></i>Postgraduate Experience
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <span th:if="${#fields.hasErrors('majorCS')}" th:errors="*{majorCS}"> Error in Major </span></strong></mark>
+
+                                        <h6>Major in Computer Science  <span class="icon-danger">*</span></h6>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{majorCS}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="1" checked="">
+                                            <i></i>Yes
+                                        </label>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{majorCS}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="2">
+                                            <i></i>No
+                                        </label>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <span th:if="${#fields.hasErrors('legalUS')}" th:errors="*{legalUS}"> Error in legal status </span></strong></mark>
+
+                                        <h6>US Legal  <span class="icon-danger">*</span></h6>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{legalUS}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="1" checked="">
+                                            <i></i>Yes
+                                        </label>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{legalUS}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="2">
+                                            <i></i>No
+                                        </label>
+
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <span th:if="${#fields.hasErrors('oopUnderstanding')}" th:errors="*{oopUnderstanding}"> OOP  error </span></strong></mark>
+
+                                        <h6>OOP Understanding <span class="icon-danger">*</span></h6>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{oopUnderstanding}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="1" checked="">
+                                            <i></i>Low
+                                        </label>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{oopUnderstanding}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="2">
+                                            <i></i>Medium
+                                        </label>
+                                        <label class="radio checked">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{oopUnderstanding}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="3" >
+                                            <i></i>High
+                                        </label>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        <span th:if="${#fields.hasErrors('oopUnderstanding')}" th:errors="*{oolExperience}"> OOL  error </span></strong></mark>
+
+                                        <h6>OOL Experience<span class="icon-danger">*</span></h6>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{oolExperience}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="1" checked="">
+                                            <i></i>Low
+                                        </label>
+                                        <label class="radio">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{oolExperience}" name="optionsRadios" data-toggle="radio" id="optionsRadios1" value="2">
+                                            <i></i>Medium
+                                        </label>
+                                        <label class="radio checked">
+                                            <span class="icons"><span class="first-icon fa fa-circle-o fa-base"></span><span class="second-icon fa fa-dot-circle-o fa-base"></span></span><input type="radio" th:field="*{oolExperience}" name="optionsRadios" data-toggle="radio" id="optionsRadios2" value="3" >
+                                            <i></i>High
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <span th:if="${#fields.hasErrors('gradYear')}" th:errors="*{gradYear}"> graduation year  error </span> </strong></mark>
+                                        <input type="number" id="gradYear" placeholder="Graduation year" th:field="*{gradYear}"/><br/>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <span th:if="${#fields.hasErrors('currentEarning')}" th:errors="*{currentEarning}"> current Earning error </span> </strong></mark>
+                                        <input type="number" id="earning" placeholder="current earning" th:field="*{currentEarning}"/><br/>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-fill btn-danger btn-wd">Register</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        <div class="login">
+                            <p>Already have an account? <a>Log in</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="demo-footer text-center">
+            <h6>© 2018, made with <i class="fa fa-heart heart"></i> by BAR Program Matcher</h6>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/registertemplate/js/jquery-1.10.2.js" type="text/javascript"></script>
+<script src="/registertemplate/js/jquery-ui-1.10.4.custom.min.js" type="text/javascript"></script>
+
+<script src="../bootstrap3/js/bootstrap.js" type="text/javascript"></script>
+
+<!--  Plugins -->
+<script src="/registertemplate/js/ct-paper-checkbox.js"></script>
+<script src="/registertemplate/js/ct-paper-radio.js"></script>
+<script src="/registertemplate/js/bootstrap-select.js"></script>
+<script src="/registertemplate/js/bootstrap-datepicker.js"></script>
+
+<script src="/registertemplate/js/ct-paper.js"></script>
+
+</body></html>
