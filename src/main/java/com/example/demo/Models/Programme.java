@@ -1,6 +1,7 @@
 package com.example.demo.Models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -45,6 +46,9 @@ public class Programme {
 
 
     public Programme() {
+        this.qualifiedStudents = new ArrayList<>();
+        this.approvedStudents = new ArrayList<>();
+        this.acceptedStudents = new ArrayList<>();
     }
 
     public long getId() {
@@ -162,7 +166,7 @@ public class Programme {
     // CONNECTIONS
     // Connections to Student
     // Qualified
-    @ManyToMany (mappedBy = "qualifiedProgram")
+    @ManyToMany
     private List<Student> qualifiedStudents;
 
     public void addQualified(Student student){
@@ -178,7 +182,7 @@ public class Programme {
     }
 
     // Approved
-    @ManyToMany(mappedBy = "approvedProgram")
+    @ManyToMany
     private List<Student> approvedStudents;
 
     public void addApproved(Student student){
@@ -194,7 +198,7 @@ public class Programme {
     }
 
     // Accepted
-    @ManyToMany(mappedBy = "acceptedProgram")
+    @ManyToMany
     private List<Student> acceptedStudents;
 
     public void addAccepted(Student student){

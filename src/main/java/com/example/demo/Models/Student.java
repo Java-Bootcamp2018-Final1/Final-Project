@@ -116,13 +116,90 @@ public class Student {
         this.englishLang = englishLang;
     }
 
+    public Integer getEmployment() {
+        return employment;
+    }
+
+    public void setEmployment(Integer employment) {
+        this.employment = employment;
+    }
+
+    public Integer getComputerSkill() {
+        return computerSkill;
+    }
+
+    public void setComputerSkill(Integer computerSkill) {
+        this.computerSkill = computerSkill;
+    }
+
+    public Integer getItInterest() {
+        return itInterest;
+    }
+
+    public void setItInterest(Integer itInterest) {
+        this.itInterest = itInterest;
+    }
+
+    public Integer getEducation() {
+        return Education;
+    }
+
+    public void setEducation(Integer education) {
+        Education = education;
+    }
+
+    public Boolean getMajorCS() {
+        return majorCS;
+    }
+
+    public void setMajorCS(Boolean majorCS) {
+        this.majorCS = majorCS;
+    }
+
+    public Boolean getLegalUS() {
+        return legalUS;
+    }
+
+    public void setLegalUS(Boolean legalUS) {
+        this.legalUS = legalUS;
+    }
+
+    public Integer getOopUnderstanding() {
+        return oopUnderstanding;
+    }
+
+    public void setOopUnderstanding(Integer oopUnderstanding) {
+        this.oopUnderstanding = oopUnderstanding;
+    }
+
+    public Integer getOolExperience() {
+        return oolExperience;
+    }
+
+    public void setOolExperience(Integer oolExperience) {
+        this.oolExperience = oolExperience;
+    }
+
+    public Integer getGradYear() {
+        return gradYear;
+    }
+
+    public void setGradYear(Integer gradYear) {
+        this.gradYear = gradYear;
+    }
+
+    public Integer getCurrentEarning() {
+        return currentEarning;
+    }
+
+    public void setCurrentEarning(Integer currentEarning) {
+        this.currentEarning = currentEarning;
+    }
 
     // CONSTRUCTORS
 
     public Student() {
-        this.qualifiedProgram = new ArrayList<>();
-        this.approvedProgram = new ArrayList<>();
-        this.acceptedProgram = new ArrayList<>();
+
     }
 
     // CONNECTIONS
@@ -148,7 +225,7 @@ public class Student {
     }
 
     // Qualified
-    @ManyToMany
+    @ManyToMany (mappedBy = "qualifiedStudents")
     private List<Programme> qualifiedProgram;
 
     public void addQualified(Programme programme){
@@ -164,7 +241,7 @@ public class Student {
     }
 
     // Approved
-    @ManyToMany
+    @ManyToMany (mappedBy = "approvedStudents")
     private List<Programme> approvedProgram;
 
     public void addApproved(Programme programme){
@@ -180,7 +257,7 @@ public class Student {
     }
 
     // Accepted
-    @ManyToMany
+    @ManyToMany (mappedBy = "acceptedStudents")
     private List<Programme> acceptedProgram;
 
     public void addAccepted(Programme programme){
