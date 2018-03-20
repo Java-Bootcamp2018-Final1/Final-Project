@@ -37,6 +37,35 @@ public class MethodsService {
         appUserRepository.save(newUser);
     }
 
+    public void qualifyForProgram(Student student,Programme programme){
+        int y = 0;
+        y = y + checkEnglish(student.getEnglishLang(),programme.getEnglishLang());
+        y = y + checkEmployment(student.getEmployment(),programme.getEmployment());
+        y = y + checkComputer(student.getComputerSkill(),programme.getComputerSkill());
+        y = y + checkIT(student.getItInterest(),programme.getItInterest());
+        y = y + checkEducation(student.getEducation(),programme.getEducation());
+        y = y + checkMajor(student.getMajorCS(),programme.getMajorCS());
+        y = y + checkUSLegal(student.getLegalUS(),programme.getLegalUS());
+        y = y + checkOOPUnderstanding(student.getOopUnderstanding(),programme.getOopUnderstanding());
+        y = y + checkOOLExperience(student.getOolExperience(),programme.getOolExperience());
+        y = y + checkGraduation(student.getGradYear(),programme.getGradYear());
+        y = y + checkEarning(student.getCurrentEarning(),programme.getCurrentEarning());
+        if(y >= 1){
+            student.addQualified(programme);
+        }
+        System.out.println(student.getFirstName() + " " + student.getLastName() + " number for " + programme.getProgramName() + " is " + y );
+
+    }
+
+    public void qualifyStudents(StudentRepository studentRepository1,ProgrammeRepository programmeRepository1){
+        for (Student student:studentRepository1.findAll()) {
+            for (Programme programme:programmeRepository1.findAll()) {
+                qualifyForProgram(student,programme);
+            }
+        }
+
+    }
+
     public int checkEnglish(Integer student,Integer program){
         int x =0;
         if(student>=program){
