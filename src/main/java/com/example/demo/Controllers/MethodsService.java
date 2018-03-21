@@ -99,7 +99,6 @@ public class MethodsService {
             for (Student student:studentRepository1.findAll()) {
                 qualifyForProgram(student,programme);
             }
-
         }
     }
 
