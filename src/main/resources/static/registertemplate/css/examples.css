@@ -148,7 +148,7 @@
   min-height: 400px;
   padding: 30px; }
 .full-screen.login .demo-card {
-  background-color: #ff5e6f4f;
+  background-color: #ccc;
   color: #fff; }
   .full-screen.login .demo-card label {
     margin-top: 15px; }
@@ -167,7 +167,7 @@
   color: #FFFFFF;
   margin-bottom: 15px; }
 .full-screen.register .demo-card {
-  background-color: #ff5e6f4f;
+  background-color: #ccc;
   max-width: 360px; }
   .full-screen.register .demo-card input {
     margin-bottom: 8px; }
