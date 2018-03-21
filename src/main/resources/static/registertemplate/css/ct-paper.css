@@ -61,6 +61,7 @@ h1 small, h2 small, h3 small, h1 .small, h2 .small, h3 .small {
 
 .title-uppercase {
   text-transform: uppercase;
+  color: #a94442;
 }
 
 blockquote {
@@ -125,7 +126,8 @@ strong {
 
 /*     General overwrite     */
 body {
-  color: #ca420b;
+
+  color: #403d39;
   font-size: 18px;
   font-family: 'Montserrat', "Helvetica", Arial, sans-serif;
 }
@@ -455,7 +457,7 @@ input.ct-red + span + label + span.switch-right {
 
 .navbar .navbar-nav > li > a.btn.btn-primary, .btn-primary {
   border-color: #7A9E9F;
-  color: #7A9E9F;
+  color: #ba3937;
 }
 .navbar .navbar-nav > li > a.btn.btn-primary:hover, .navbar .navbar-nav > li > a.btn.btn-primary:focus, .navbar .navbar-nav > li > a.btn.btn-primary:active, .navbar .navbar-nav > li > a.btn.btn-primary:active:hover, .navbar .navbar-nav > li > a.btn.btn-primary:active:focus, .navbar .navbar-nav > li > a.btn.btn-primary.active, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:focus, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle:hover, .open > .navbar .navbar-nav > li > a.btn.btn-primary.dropdown-toggle, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:hover, .btn-primary:active:focus, .btn-primary.active, .open > .btn-primary.dropdown-toggle:focus, .open > .btn-primary.dropdown-toggle:hover, .open > .btn-primary.dropdown-toggle {
   background-color: #7A9E9F;
@@ -4443,7 +4445,7 @@ body > .navbar-collapse.collapse {
   background-color: rgba(240, 169, 21, 0.5);
 }
 .header-wrapper .header .filter-danger::after {
-  background-color: rgba(205, 71, 19, 0.5);
+  background-color: rgba(205, 71, 19, 0.17);
 }
 .header-wrapper .header .container {
   color: #FFFFFF;
@@ -4504,7 +4506,7 @@ body > .navbar-collapse.collapse {
   margin-bottom: 3px;
 }
 .footer .links ul a:not(.btn):hover, .footer .links ul a:not(.btn):focus {
-  color: #403D39;
+  color: #5f220a;
 }
 .footer .links ul.uppercase-links {
   text-transform: uppercase;
@@ -4545,13 +4547,13 @@ body > .navbar-collapse.collapse {
 .footer-black,
 .footer-transparent,
 .subscribe-line-transparent {
-  background-color: #252422;
+  background-color: #274628;
   color: #DDDDDD;
 }
 .footer-black .links ul a:not(.btn),
 .footer-transparent .links ul a:not(.btn),
 .subscribe-line-transparent .links ul a:not(.btn) {
-  color: #A49E9E;
+  color: #95533a;
 }
 .footer-black .links ul a:not(.btn):hover, .footer-black .links ul a:not(.btn):focus,
 .footer-transparent .links ul a:not(.btn):hover,
@@ -4563,7 +4565,7 @@ body > .navbar-collapse.collapse {
 .footer-black .copyright,
 .footer-transparent .copyright,
 .subscribe-line-transparent .copyright {
-  color: #66615b;
+  color: #95533a;
 }
 .footer-black .copyright ul > li a:not(.btn),
 .footer-transparent .copyright ul > li a:not(.btn),
