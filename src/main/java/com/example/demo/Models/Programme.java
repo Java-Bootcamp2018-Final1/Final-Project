@@ -213,6 +213,7 @@ public class Programme {
 
     // Approved
     @ManyToMany
+
     private List<Student> approvedStudents;
 
     public void addApproved(Student student){
@@ -229,6 +230,7 @@ public class Programme {
 
     // Accepted
     @ManyToMany
+
     private List<Student> acceptedStudents;
 
     public void addAccepted(Student student){
@@ -245,6 +247,7 @@ public class Programme {
 
     // Applied
     @ManyToMany
+
     private List<Student> appliedStudents;
 
     public void addApplied(Student student){this.appliedStudents.add(student);}
@@ -255,5 +258,32 @@ public class Programme {
 
     public void setAppliedStudents(List<Student> appliedStudents) {
         this.appliedStudents = appliedStudents;
+    }
+
+    @Override
+    public String toString() {
+        return "Programme{" +
+                "id=" + id +
+                ", programName='" + programName + '\'' +
+                ", programDescription='" + programDescription + '\'' +
+                ", criteriaDescription='" + criteriaDescription + '\'' +
+                ", numberApplicants=" + numberApplicants +
+                ", numberAccepted=" + numberAccepted +
+                ", englishLang=" + englishLang +
+                ", employment=" + employment +
+                ", computerSkill=" + computerSkill +
+                ", itInterest=" + itInterest +
+                ", Education=" + Education +
+                ", majorCS=" + majorCS +
+                ", legalUS=" + legalUS +
+                ", oopUnderstanding=" + oopUnderstanding +
+                ", oolExperience=" + oolExperience +
+                ", gradYear=" + gradYear +
+                ", currentEarning=" + currentEarning +
+                ", qualifiedStudents=" + qualifiedStudents +
+                ", approvedStudents=" + approvedStudents +
+                ", acceptedStudents=" + acceptedStudents +
+                ", appliedStudents=" + appliedStudents +
+                '}';
     }
 }

@@ -2,9 +2,13 @@
 <html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security4">
 <head>
     <meta charset="UTF-8"/>
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<ul th:each="lists :${appliedList}">
+    <li th:text="${lists.getUserEmail()}"></li>
+    <a th:href="@{/approvestudent/{id} (id = ${lists.id})}">approve</a>
+
+</ul>
 </body>
 </html>

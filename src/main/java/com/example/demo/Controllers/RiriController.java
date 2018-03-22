@@ -16,10 +16,10 @@ public class RiriController {
     }
 
 
-    @RequestMapping("/login")
-    public String showLog(){
+   @RequestMapping("/login")
+    public String showLog(Model model){
 
-        return "login";
+        return "loginbackup";
     }
 
 

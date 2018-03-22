@@ -5,8 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-<ul th:each="showpro : ${showprogs}">
-    <a th:href="@{/listapplied/{id} (id = ${showpro.id})}">show applied students</a>
+<ul th:each="lists :${acceptlist}">
+    <li th:text="${lists.getUserEmail()}"></li>
+
 
 </ul>
 </body>

@@ -9,5 +9,6 @@ import java.util.HashSet;
 public interface AppUserRepository extends CrudRepository<AppUser, Long> {
     AppUser findAppUserByAppUsername(String username);
     HashSet <AppUser> findByRoles(AppRole r);
+    AppUser findAppUsersByAppUsername(String appusername);
 
 }

@@ -1,17 +1,21 @@
 package com.example.demo.Config;
 
-import com.example.demo.Repositories.*;
-import com.example.demo.Models.*;
+import com.example.demo.Models.AppRole;
+import com.example.demo.Models.AppUser;
+import com.example.demo.Repositories.AppUserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.HashSet;
 import java.util.Set;
-
+@Transactional
+@Service
 public class SSUDS implements UserDetailsService {
     private AppUserRepository appUserRepository;
 
@@ -22,11 +26,9 @@ public class SSUDS implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-
-        AppUser thisUser = appUserRepository.findAppUserByAppUsername(username);
-
-
-        if(thisUser==null)
+        AppUser thisUser = appUserRepository.findAppUsersByAppUsername(username);
+       // System.out.println(thisUser.getAppUsername() + grantedAuthorities(thisUser) + " aaaaaaaaaaaaaaa");
+        if(thisUser == null)
             throw new UsernameNotFoundException("Invalid username or password");
 
 

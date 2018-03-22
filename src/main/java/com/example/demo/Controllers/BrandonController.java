@@ -1,17 +1,18 @@
 package com.example.demo.Controllers;
 
-import com.example.demo.Models.*;
-import com.example.demo.Repositories.*;
-import com.example.demo.Config.*;
-import com.example.demo.Controllers.*;
+import com.example.demo.Models.AppUser;
+import com.example.demo.Models.Programme;
+import com.example.demo.Models.Student;
+import com.example.demo.Repositories.AppRoleRepository;
+import com.example.demo.Repositories.AppUserRepository;
+import com.example.demo.Repositories.ProgrammeRepository;
+import com.example.demo.Repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -43,18 +44,28 @@ public class BrandonController {
             return "redirect:/";
         }
     }
-
+@GetMapping("/showprograms")
+    public String showListedPrograms(Model model){
+        model.addAttribute("showprogs", programmeRepository.findAll());
+        return "showprograms";
+}
     // This Method returns a model containing a list of all students who have applied for a program
+    @RequestMapping("/listapplied/{id}")
     public String showAppliedStudentsForProgram(@PathVariable("id") long id, Model model){
         Programme programme = programmeRepository.findOne(id);
-        model.addAttribute("appliedList", programme.getAppliedStudents());
-        return "";
+        model.addAttribute("appliedList",programme.getAppliedStudents());
+        for(Student stu: programme.getApprovedStudents()){
+            //System.out.println(stu.getUserEmail());
+        }
+
+        return "listapplied";
     }
 
     // This Method returns a model containg a list of all programs
+    @GetMapping("/listprograms")
     public String showListPrograms(Model model){
         model.addAttribute("programlist",programmeRepository.findAll());
-        return "";
+        return "listprograms";
     }
 
     // This Method returns a model containing a list of Programs Suggested for the User
@@ -75,20 +86,57 @@ public class BrandonController {
     }
 
     // This Method allows a user to apply for a program
+    @RequestMapping("/applyforaprogram/{id}")
     public String applyForAProgram(@PathVariable("id")long id,Authentication authentication){
         AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
         Student student = appUser.getStudent();
         Programme programme =programmeRepository.findOne(id);
         methodsService.applyForProgramme(student,programme);
-        return "";
+        return "redirect:/";
     }
 
+    //approve students
+    @RequestMapping("/approvestudent/{id}")
+    public String approvestudents(@PathVariable("id")long id,Authentication authentication){
+        AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
+        Student student = appUser.getStudent();
+        Programme programme =programmeRepository.findOne(id);
+        methodsService.approveStudent(student,programme);
+        return "redirect:/";
+    }
+// student accept approval
+
+    @RequestMapping("/acceptstudent/{id}")
+    public String acceptStudent(@PathVariable("id")long id,Authentication authentication){
+        AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
+        Student student = appUser.getStudent();
+        Programme programme =programmeRepository.findOne(id);
+        methodsService.acceptProgram(student,programme);
+        return "showaccept";
+    }
     // This Method returns a model showing a user programs that they have been approved for
+    @RequestMapping("/showapprove")
     public String showApprovedPrograms(Model model, Authentication authentication){
         AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
         Student student = appUser.getStudent();
-        model.addAttribute("listprograms", student.getApprovedProgram());
-        return "";
+
+        for(Programme pro : student.getApprovedProgram()){
+            model.addAttribute("listprograms", pro.getApprovedStudents());
+        }
+        return "showapprove";
+    }
+
+    // show students who accept a program
+
+    @RequestMapping("/showacccept")
+    public String listacceptstudents(Model model, Authentication authentication){
+        AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
+        Student student = appUser.getStudent();
+
+        for(Programme pro : student.getAcceptedProgram()){
+            model.addAttribute("acceptlist", pro.getAcceptedStudents());
+        }
+        return "showaccept";
     }
 
     // This method allows an Admin to add another Admin

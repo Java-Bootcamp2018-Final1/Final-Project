@@ -6,7 +6,9 @@
 </head>
 <body>
 <ul th:each="lists : ${programlist}">
+    <li th:text="${lists.programName}">
 
+    </li>
     <lablel>Criterias description:  </lablel>
     <li th:text="${lists.criteriaDescription}">
 
@@ -22,7 +24,7 @@
     <li th:text="${lists.legalUS}">
 
     </li>
-    <a th:href="@{/listapplied/{id} (id = ${lists.id})}">Apply</a>
+    <a th:href="@{/applyforaprogram/{id} (id = ${lists.id})}">Apply</a>
 
 </ul>
 </body>

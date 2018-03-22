@@ -2,7 +2,6 @@ package com.example.demo.Config;
 
 import com.example.demo.Repositories.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -17,6 +16,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
     @Autowired
+    SSUDS userDetailsService;
+    @Autowired
     AppUserRepository appUserRepository;
 
     @Override
@@ -29,20 +30,29 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         http
 
                 .authorizeRequests()
-                .antMatchers("/**", "/css/**","/fonts/**","/js/**","/img/**","/sass/**").permitAll()
+                .antMatchers("/registertemplate/**","/fonts/**","/js/**","/img/**","/sass/**").permitAll()
 /*
                 .antMatchers("/addtopic","/remove/**","/enable/**","/personalnews","/newscategory/{cattypename}").hasAuthority("USER")
 */
-                .anyRequest().authenticated();
+                .antMatchers("/admin","/additems","/listprograms").access("hasAuthority('STUDENT') or hasAuthority('ADMIN')" )
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().loginPage("/login").permitAll()
+                .and()
+                .logout()
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login").permitAll().permitAll()
+                .and()
+                .httpBasic();
 
         http
-                .formLogin().failureUrl("/login?error")
-                .defaultSuccessUrl("/")
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login?logout")
-                .permitAll();
+                .csrf().disable();
+
+        http
+                .headers().frameOptions().disable();
+
+
+
     }
 
     @Override
