@@ -79,9 +79,10 @@ public class MethodsService {
     }
 
     // Admin only method: for approving students
-    public void approveStudent(Student student,Programme programme){
+    public void approveStudent(Student student,Programme programme) throws CannotSendEmailException, IOException, URISyntaxException {
         programme.addApproved(student);
         programmeRepository.save(programme);
+        sendAdmissionEmailWithThymeleaf(student,programme);
     }
 
     // Student Only Method: for accepting a program
@@ -137,12 +138,12 @@ public class MethodsService {
     }
 
     // Sends an Email(template) when a student is admitted
-    public void sendAddmissionEmailWithThymeleaf(Student student) throws IOException, CannotSendEmailException, URISyntaxException {
+    public void sendAdmissionEmailWithThymeleaf(Student student, Programme programme) throws IOException, CannotSendEmailException, URISyntaxException {
 
         final Email email = DefaultEmail.builder()
                 .from(new InternetAddress("bhcodingpractice@gmail.com","Brandon"))
                 .to(Lists.newArrayList(new InternetAddress(student.getUserEmail(),student.getFirstName() +" "+student.getLastName())))
-                .subject("You shall die! It's not me, it's Psychohistory")
+                .subject("Admission to " + programme.getProgramName())
                 .body("")//this will be overridden by the template, anyway
                 .encoding("UTF-8").build();
 
@@ -150,7 +151,8 @@ public class MethodsService {
 
         Map<String, Object> modelObject = ImmutableMap.of(
                 "fname", student.getFirstName(),
-                "lname", student.getLastName()
+                "lname", student.getLastName(),
+                "pname", programme.getProgramName()
         );
 
         emailService.send(email, template, modelObject);

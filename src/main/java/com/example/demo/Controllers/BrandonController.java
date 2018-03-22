@@ -4,6 +4,7 @@ import com.example.demo.Models.*;
 import com.example.demo.Repositories.*;
 import com.example.demo.Config.*;
 import com.example.demo.Controllers.*;
+import it.ozimov.springboot.mail.service.exception.CannotSendEmailException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 @Controller
 public class BrandonController {
@@ -104,7 +107,7 @@ public class BrandonController {
     }
 
     //This method allows an Admin to Approve a student for a program
-    public String approveStudentForProgram(@PathVariable("id1") long id1,@PathVariable("id2")long id2){
+    public String approveStudentForProgram(@PathVariable("id1") long id1,@PathVariable("id2")long id2) throws CannotSendEmailException, IOException, URISyntaxException {
         Student student = studentRepository.findOne(id1);
         Programme programme = programmeRepository.findOne(id2);
         methodsService.approveStudent(student,programme);

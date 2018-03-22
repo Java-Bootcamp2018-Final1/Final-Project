@@ -250,7 +250,10 @@ public class DataLoader implements CommandLineRunner {
         // METHOD Testing
         // Checking qualifications
         methodsService.qualifyStudents(studentRepository,programmeRepository);
-        methodsService.sendAddmissionEmailWithThymeleaf(studentRepository.findOne(new Long(7)));
+/* // I don't want to keep sending emails to myself
+        methodsService.sendAdmissionEmailWithThymeleaf(studentRepository.findOne(new Long(7)),programmeRepository.findOne(new Long(2)));
+*/
+        methodsService.approveStudent(studentRepository.findOne(new Long(3)),programmeRepository.findOne(new Long(1)));
 
 
 
