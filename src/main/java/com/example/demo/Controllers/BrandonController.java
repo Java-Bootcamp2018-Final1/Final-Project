@@ -1,5 +1,6 @@
 package com.example.demo.Controllers;
 
+<<<<<<< HEAD
 import com.example.demo.Models.AppUser;
 import com.example.demo.Models.Programme;
 import com.example.demo.Models.Student;
@@ -7,6 +8,13 @@ import com.example.demo.Repositories.AppRoleRepository;
 import com.example.demo.Repositories.AppUserRepository;
 import com.example.demo.Repositories.ProgrammeRepository;
 import com.example.demo.Repositories.StudentRepository;
+=======
+import com.example.demo.Models.*;
+import com.example.demo.Repositories.*;
+import com.example.demo.Config.*;
+import com.example.demo.Controllers.*;
+import it.ozimov.springboot.mail.service.exception.CannotSendEmailException;
+>>>>>>> master
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -15,6 +23,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.io.IOException;
+import java.net.URISyntaxException;
 
 @Controller
 public class BrandonController {
@@ -152,7 +162,7 @@ public class BrandonController {
     }
 
     //This method allows an Admin to Approve a student for a program
-    public String approveStudentForProgram(@PathVariable("id1") long id1,@PathVariable("id2")long id2){
+    public String approveStudentForProgram(@PathVariable("id1") long id1,@PathVariable("id2")long id2) throws CannotSendEmailException, IOException, URISyntaxException {
         Student student = studentRepository.findOne(id1);
         Programme programme = programmeRepository.findOne(id2);
         methodsService.approveStudent(student,programme);

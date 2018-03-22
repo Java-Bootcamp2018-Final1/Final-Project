@@ -12,8 +12,10 @@ public class Programme {
 
     private String programName;
 
+    @Lob
     private String programDescription;
 
+    @Lob
     private String criteriaDescription;
 
     private Integer numberApplicants;
@@ -263,6 +265,7 @@ public class Programme {
     @Override
     public String toString() {
         return "Programme{" +
+<<<<<<< HEAD
                 "id=" + id +
                 ", programName='" + programName + '\'' +
                 ", programDescription='" + programDescription + '\'' +
@@ -284,6 +287,10 @@ public class Programme {
                 ", approvedStudents=" + approvedStudents +
                 ", acceptedStudents=" + acceptedStudents +
                 ", appliedStudents=" + appliedStudents +
+=======
+                "programName='" + programName + '\'' +
+                ", programDescription='" + programDescription + '\'' +
+>>>>>>> master
                 '}';
     }
 }
