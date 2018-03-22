@@ -4553,7 +4553,7 @@ body > .navbar-collapse.collapse {
 .footer-black .links ul a:not(.btn),
 .footer-transparent .links ul a:not(.btn),
 .subscribe-line-transparent .links ul a:not(.btn) {
-  color: #95533a;
+  color: #a94442;
 }
 .footer-black .links ul a:not(.btn):hover, .footer-black .links ul a:not(.btn):focus,
 .footer-transparent .links ul a:not(.btn):hover,
@@ -4565,7 +4565,7 @@ body > .navbar-collapse.collapse {
 .footer-black .copyright,
 .footer-transparent .copyright,
 .subscribe-line-transparent .copyright {
-  color: #95533a;
+  color: #a94442;
 }
 .footer-black .copyright ul > li a:not(.btn),
 .footer-transparent .copyright ul > li a:not(.btn),
