@@ -152,7 +152,7 @@ public class DataLoader implements CommandLineRunner {
         student = new Student();
         student.setFirstName("Fred");
         student.setLastName("Krueger");
-        student.setUserEmail("g7@gmail.com");
+        student.setUserEmail("bdayton1985@gmail.com");
         student.setAppPassword("password7");
         student.setEnglishLang(null);
         student.setEmployment(null);
@@ -240,6 +240,7 @@ public class DataLoader implements CommandLineRunner {
         // METHOD Testing
         // Checking qualifications
         methodsService.qualifyStudents(studentRepository,programmeRepository);
+        methodsService.sendAddmissionEmailWithThymeleaf(studentRepository.findOne(new Long(7)));
 
 
 
