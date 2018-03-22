@@ -152,7 +152,7 @@ public class DataLoader implements CommandLineRunner {
         student = new Student();
         student.setFirstName("Fred");
         student.setLastName("Krueger");
-        student.setUserEmail("bdayton1985@gmail.com");
+        student.setUserEmail("g7@gmail.com");
         student.setAppPassword("password7");
         student.setEnglishLang(null);
         student.setEmployment(null);
@@ -242,7 +242,9 @@ public class DataLoader implements CommandLineRunner {
         methodsService.qualifyStudents(studentRepository,programmeRepository);
 
         // I don't want to keep sending emails to myself
+/*
         methodsService.sendAdmissionEmailWithThymeleaf(studentRepository.findOne(new Long(3)),programmeRepository.findOne(new Long(2)));
+*/
 
 
 /*
