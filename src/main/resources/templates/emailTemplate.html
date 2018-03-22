@@ -2,14 +2,12 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <body>
 <p>
-    Dear <span th:text="${fname} ${lname}"></span>,
+    Dear <span th:text="|${fname} ${lname}|" ></span>,
 </p>
 <p>
     I prepared a logo for your empire. Just have a look and give me a feedback.
 </p>
-<p style="align:center">
-    <img src="galaxy.jpeg"/>
-</p>
+
 <p>
     Uh, I almost forgot to tell you: <strong>oh emperor, you'll die soon! Assassinated!</strong>
     <br/>
