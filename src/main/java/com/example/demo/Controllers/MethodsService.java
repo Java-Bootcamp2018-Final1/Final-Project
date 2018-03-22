@@ -2,9 +2,12 @@ package com.example.demo.Controllers;
 
 import com.example.demo.Models.*;
 import com.example.demo.Repositories.*;
+import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import it.ozimov.springboot.mail.model.Email;
+import it.ozimov.springboot.mail.model.ImageType;
 import it.ozimov.springboot.mail.model.defaultimpl.DefaultEmail;
+import it.ozimov.springboot.mail.model.defaultimpl.DefaultInlinePicture;
 import it.ozimov.springboot.mail.service.EmailService;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
@@ -17,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.mail.internet.InternetAddress;
+import java.io.File;
 import java.time.LocalDateTime;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -139,7 +143,7 @@ public class MethodsService {
 
     // Sends an Email(template) when a student is admitted
     public void sendAdmissionEmailWithThymeleaf(Student student, Programme programme) throws IOException, CannotSendEmailException, URISyntaxException {
-
+        InlinePicture inlinePicture = createCatInlinePicture();
         final Email email = DefaultEmail.builder()
                 .from(new InternetAddress("bhcodingpractice@gmail.com","Brandon"))
                 .to(Lists.newArrayList(new InternetAddress(student.getUserEmail(),student.getFirstName() +" "+student.getLastName())))
@@ -155,7 +159,18 @@ public class MethodsService {
                 "pname", programme.getProgramName()
         );
 
-        emailService.send(email, template, modelObject);
+        emailService.send(email, template, modelObject, inlinePicture);
+    }
+
+    private InlinePicture createCatInlinePicture() throws URISyntaxException {
+        ClassLoader classLoader = getClass().getClassLoader();
+        File pictureFile = new File(classLoader.getResource("static" + File.separator + "registertemplate" + File.separator + "img2" + File.separator +"caticon.jpeg").toURI());
+        Preconditions.checkState(pictureFile.exists(), "There is not picture %s", pictureFile.getName());
+
+        return DefaultInlinePicture.builder()
+                .file(pictureFile)
+                .imageType(ImageType.JPG)
+                .templateName("caticon.jpeg").build();
     }
 
     // Start of the individual value checkers

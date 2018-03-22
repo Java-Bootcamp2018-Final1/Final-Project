@@ -12,8 +12,10 @@ public class Programme {
 
     private String programName;
 
+    @Lob
     private String programDescription;
 
+    @Lob
     private String criteriaDescription;
 
     private Integer numberApplicants;
@@ -255,5 +257,13 @@ public class Programme {
 
     public void setAppliedStudents(List<Student> appliedStudents) {
         this.appliedStudents = appliedStudents;
+    }
+
+    @Override
+    public String toString() {
+        return "Programme{" +
+                "programName='" + programName + '\'' +
+                ", programDescription='" + programDescription + '\'' +
+                '}';
     }
 }
