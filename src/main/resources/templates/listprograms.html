@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security4">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<ul th:each="lists : ${programlist}">
+
+    <lablel>Criterias description:  </lablel>
+    <li th:text="${lists.criteriaDescription}">
+
+    </li>
+    <label>English language </label>
+    <li th:text="${lists.englishLang}">
+
+    </li>
+    <li th:text="${lists.majorCS}">
+
+    </li>
+    <lable>legal to USA :</lable>
+    <li th:text="${lists.legalUS}">
+
+    </li>
+    <a th:href="@{/listapplied/{id} (id = ${lists.id})}">Apply</a>
+
+</ul>
+</body>
+</html>

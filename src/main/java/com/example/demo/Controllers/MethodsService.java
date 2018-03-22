@@ -2,9 +2,14 @@ package com.example.demo.Controllers;
 
 import com.example.demo.Models.*;
 import com.example.demo.Repositories.*;
+import com.google.common.collect.Lists;
+import it.ozimov.springboot.mail.model.Email;
+import it.ozimov.springboot.mail.model.defaultimpl.DefaultEmail;
+import it.ozimov.springboot.mail.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.mail.internet.InternetAddress;
 import java.time.LocalDateTime;
 
 @Service
@@ -18,6 +23,9 @@ public class MethodsService {
     StudentRepository studentRepository;
     @Autowired
     ProgrammeRepository programmeRepository;
+
+    @Autowired
+    public EmailService emailService;
 
     LocalDateTime localDateTime;
 
@@ -101,6 +109,18 @@ public class MethodsService {
             }
         }
     }
+
+    // Sends an Email when a student is admitted
+   /* public void sendEmailWithoutTemplating(){
+        final Email email = DefaultEmail.builder()
+                .from(new InternetAddress("cicero@mala-tempora.currunt", "Marco Tullio Cicerone "))
+                .to(Lists.newArrayList(new InternetAddress("titus@de-rerum.natura", "Pomponius Attĭcus")))
+                .subject("Laelius de amicitia")
+                .body("Firmamentum autem stabilitatis constantiaeque eius, quam in amicitia quaerimus, fides est.")
+                .encoding("UTF-8").build();
+
+        emailService.send(email);
+    }*/
 
     // Start of the individual value checkers
     public int checkEnglish(Integer student,Integer program){
