@@ -184,17 +184,22 @@ public class DataLoader implements CommandLineRunner {
         Programme programme = new Programme();
         // Program 1
         programme.setProgramName("Hiring in Tech");
-        programme.setProgramDescription("TechHire is a new U.S. Department of Labor grant-funded training program for " +
+        /*programme.setProgramDescription("TechHire is a new U.S. Department of Labor grant-funded training program for " +
                 "those interested in careers in computers and Information Technology (IT). Based on your skills, experience, and English level, " +
                 "you may be able to enter one or more tracks that will help you further your education and training and find a job.");
-        programme.setCriteriaDescription("English Language Learner\n"+
+*/
+        programme.setProgramDescription("");
+
+
+        /*  programme.setCriteriaDescription("English Language Learner\n"+
                 "Unemployed with barriers to employment\n"+
                 "Underemployed with barriers to better employment\n"+
                 "In addition, you should:\n"+
                 "Be comfortable using computers for everyday purposes\n"+
                 "Have a strong interest in an IT career\n"+
                 "Have a high school diploma or GED\n"+
-                "Be legally authorized to work in the U.S.");
+                "Be legally authorized to work in the U.S.");*/
+        programme.setCriteriaDescription(" ");
         programme.setNumberAccepted(0);
         programme.setNumberApplicants(0);
         programme.setEnglishLang(3);
@@ -212,16 +217,21 @@ public class DataLoader implements CommandLineRunner {
         // Program 2
         programme = new Programme();
         programme.setProgramName("Promising the Future");
-        programme.setProgramDescription("The Java Web Developer Boot Camp is an 8 hour a day (9 am - 5 pm, M-F) 8-week, " +
+       /* programme.setProgramDescription("The Java Web Developer Boot Camp is an 8 hour a day (9 am - 5 pm, M-F) 8-week, " +
                 "immersive software engineering program funded by the Department of Labor. This course aims to increase the number " +
                 "of skilled software developers in this country. We do this by accepting qualified candidates who cannot afford " +
                 "the cost of a coding boot camp. If accepted into the program all fees will be covered by the program.");
-        programme.setCriteriaDescription("Basic understanding of object oriented programming\n"+
+        */
+       programme.setProgramDescription(" ");
+
+
+        /* programme.setCriteriaDescription("Basic understanding of object oriented programming\n"+
                 "Previous experience with an object-oriented language\n"+
                 "Major in Computer Science / Information Systems\n"+
                 "Graduated within the last 6 years\n"+
                 "Currently earning 42,000 or less\n"+
-                "Be able to work in the United States");
+                "Be able to work in the United States");*/
+        programme.setCriteriaDescription(" ");
         programme.setNumberAccepted(0);
         programme.setNumberApplicants(0);
         programme.setEnglishLang(null);
