@@ -1,6 +1,6 @@
 package com.example.demo.Controllers;
 
-<<<<<<< HEAD
+
 import com.example.demo.Models.AppUser;
 import com.example.demo.Models.Programme;
 import com.example.demo.Models.Student;
@@ -8,13 +8,9 @@ import com.example.demo.Repositories.AppRoleRepository;
 import com.example.demo.Repositories.AppUserRepository;
 import com.example.demo.Repositories.ProgrammeRepository;
 import com.example.demo.Repositories.StudentRepository;
-=======
-import com.example.demo.Models.*;
-import com.example.demo.Repositories.*;
-import com.example.demo.Config.*;
-import com.example.demo.Controllers.*;
+
 import it.ozimov.springboot.mail.service.exception.CannotSendEmailException;
->>>>>>> master
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -40,6 +36,13 @@ public class BrandonController {
     @Autowired
     MethodsService methodsService;
 
+    @GetMapping("/register")
+    public String showReg(Model model){
+
+        model.addAttribute("NewStudent", new Student());
+        return "register";
+    }
+
     @PostMapping("/register")
     public String addNewUser(@Valid @ModelAttribute("NewStudent") Student student, BindingResult result, Model model)
     {
@@ -47,7 +50,7 @@ public class BrandonController {
         if(result.hasErrors())
         {
             System.out.println(result.toString());
-            return "registration";
+            return "register";
         }
         else{
             methodsService.registerStudent(student);
@@ -56,12 +59,14 @@ public class BrandonController {
     }
 @GetMapping("/showprograms")
     public String showListedPrograms(Model model){
+
         model.addAttribute("showprogs", programmeRepository.findAll());
         return "showprograms";
 }
     // This Method returns a model containing a list of all students who have applied for a program
     @RequestMapping("/listapplied/{id}")
     public String showAppliedStudentsForProgram(@PathVariable("id") long id, Model model){
+
         Programme programme = programmeRepository.findOne(id);
         model.addAttribute("appliedList",programme.getAppliedStudents());
         for(Student stu: programme.getApprovedStudents()){
@@ -107,7 +112,7 @@ public class BrandonController {
 
     //approve students
     @RequestMapping("/approvestudent/{id}")
-    public String approvestudents(@PathVariable("id")long id,Authentication authentication){
+    public String approvestudents(@PathVariable("id")long id,Authentication authentication) throws CannotSendEmailException, IOException, URISyntaxException {
         AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
         Student student = appUser.getStudent();
         Programme programme =programmeRepository.findOne(id);
@@ -117,12 +122,15 @@ public class BrandonController {
 // student accept approval
 
     @RequestMapping("/acceptstudent/{id}")
-    public String acceptStudent(@PathVariable("id")long id,Authentication authentication){
+    public String acceptStudent(@PathVariable("id")long id,Authentication authentication, Model model){
+        String s = "You accepted the program ";
+        model.addAttribute("accept", s);
         AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
         Student student = appUser.getStudent();
         Programme programme =programmeRepository.findOne(id);
+        model.addAttribute("name", appUser);
         methodsService.acceptProgram(student,programme);
-        return "showaccept";
+        return "showconfirmaion";
     }
     // This Method returns a model showing a user programs that they have been approved for
     @RequestMapping("/showapprove")

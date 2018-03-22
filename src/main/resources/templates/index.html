@@ -39,6 +39,21 @@
             <div class="collapse navbar-collapse" id="navigation-example-2">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
+                        <a class="btn btn-simple btn-primary" href="/listprograms">List Programs</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-simple btn-primary" href="/showprograms">View Applications</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-simple btn-primary" href="/listprograms">List Programs</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-simple btn-primary" href="/showapprove">Approved Applications</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-simple btn-primary" href="/showacccept">Accepted Applications</a>
+                    </li>
+                    <li>
                         <a class="btn btn-simple btn-primary" href="/register">Register</a>
                     </li>
                     <li>
@@ -75,10 +90,10 @@
         <div class="section section-nude">
             <div class="container">
                 <h3 class="title-uppercase">Our Programmes</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit tempus nunc at fermentum. Maecenas quis justo nunc. Maecenas sodales, neque non rutrum egestas, lectus ligula tincidunt diam, sed posuere orci risus in tortor. Maecenas dignissim neque at orci viverra fringilla. Etiam sed nulla cursus dui ornare suscipit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur vel orci ac diam vestibulum tempor ut in ante. Integer quis lorem sit amet sapien luctus pulvinar at eget orci. Curabitur ut accumsan eros. Nunc ac nulla dictum, porttitor sapien sit amet, consequat lectus. Sed luctus mauris nec metus suscipit accumsan. Phasellus nec quam sollicitudin, hendrerit odio sed, euismod mauris.</p>
+                <ul th:each="showpro : ${showprogs}">
+                    <p th:inline="text">[[${showpro.programDescription}]]</p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed blandit tempus nunc at fermentum. Maecenas quis justo nunc. Maecenas sodales, neque non rutrum egestas, lectus ligula tincidunt diam, sed posuere orci risus in tortor. Maecenas dignissim neque at orci viverra fringilla. Etiam sed nulla cursus dui ornare suscipit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur vel orci ac diam vestibulum tempor ut in ante. Integer quis lorem sit amet sapien luctus pulvinar at eget orci. Curabitur ut accumsan eros. Nunc ac nulla dictum, porttitor sapien sit amet, consequat lectus. Sed luctus mauris nec metus suscipit accumsan. Phasellus nec quam sollicitudin, hendrerit odio sed, euismod mauris.</p>
-
+                </ul>
                 <div class="row">
 
 

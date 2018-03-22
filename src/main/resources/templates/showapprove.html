@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security4">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Title</title>
-</head>
-<body>
-<ul th:each="lists :${listprograms}">
-    <li th:text="${lists.getUserEmail()}"></li>
-    <a th:href="@{/acceptstudent/{id} (id = ${lists.id})}">accept</a>
+<div th:replace="base :: BARheader"></div>
+<body class="about-us">
 
-</ul>
+<div th:replace="base :: BARnav">
+</div>
+
+
+<div class="wrapper">
+    <div class="main">
+        <div class="section section-nude">
+            <div class="container">
+                <h3 class="title-uppercase">List of Applicants</h3>
+
+                <ul th:each="lists :${listprograms}">
+                    <li th:text="${lists.getUserEmail()}"></li>
+                    <a th:href="@{/acceptstudent/{id} (id = ${lists.id})}">accept</a>
+
+                </ul>
+            </div></div></div>
+</div>
+
+
+
 </body>
+
+<div th:replace="base :: BARfooter"></div>
 </html>
+
+

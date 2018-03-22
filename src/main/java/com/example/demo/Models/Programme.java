@@ -265,32 +265,8 @@ public class Programme {
     @Override
     public String toString() {
         return "Programme{" +
-<<<<<<< HEAD
-                "id=" + id +
-                ", programName='" + programName + '\'' +
-                ", programDescription='" + programDescription + '\'' +
-                ", criteriaDescription='" + criteriaDescription + '\'' +
-                ", numberApplicants=" + numberApplicants +
-                ", numberAccepted=" + numberAccepted +
-                ", englishLang=" + englishLang +
-                ", employment=" + employment +
-                ", computerSkill=" + computerSkill +
-                ", itInterest=" + itInterest +
-                ", Education=" + Education +
-                ", majorCS=" + majorCS +
-                ", legalUS=" + legalUS +
-                ", oopUnderstanding=" + oopUnderstanding +
-                ", oolExperience=" + oolExperience +
-                ", gradYear=" + gradYear +
-                ", currentEarning=" + currentEarning +
-                ", qualifiedStudents=" + qualifiedStudents +
-                ", approvedStudents=" + approvedStudents +
-                ", acceptedStudents=" + acceptedStudents +
-                ", appliedStudents=" + appliedStudents +
-=======
                 "programName='" + programName + '\'' +
                 ", programDescription='" + programDescription + '\'' +
->>>>>>> master
                 '}';
     }
 }
