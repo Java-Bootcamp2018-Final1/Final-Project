@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security4">
-<div th:replace="base :: BARheader"></div>
-<body class="about-us">
-
-<div th:replace="base :: BARnav">
-</div>
-
-
-<div class="wrapper">
-    <div class="main">
-        <div class="section section-nude">
-            <div class="container">
-                <h3 class="title-uppercase">Our Programmes</h3>
-
-    <ul th:each="lists : ${programlist}">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<ul th:each="lists : ${programlist}">
     <li th:text="${lists.programName}">
 
     </li>
@@ -35,12 +27,5 @@
     <a th:href="@{/applyforaprogram/{id} (id = ${lists.id})}">Apply</a>
 
 </ul>
-            </div></div></div>
-</div>
-
-
-
 </body>
-
-<div th:replace="base :: BARfooter"></div>
 </html>

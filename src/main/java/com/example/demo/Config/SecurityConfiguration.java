@@ -30,7 +30,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         http
 
                 .authorizeRequests()
-                .antMatchers("/registertemplate/**","/fonts/**","/js/**","/img/**","/sass/**").permitAll()
+                .antMatchers("/registertemplate/**","/bootstrap3/**","/fonts/**","/js/**","/img/**","/sass/**").permitAll()
 /*
                 .antMatchers("/addtopic","/remove/**","/enable/**","/personalnews","/newscategory/{cattypename}").hasAuthority("USER")
 */
