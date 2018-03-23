@@ -51,42 +51,44 @@
                     <a class="navbar-brand" href="/">BAR Program Matcher</a>
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navigation-example-2">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/listprograms">List Programs</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/showprograms">View Applications</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/listprograms">List Programs</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/showapprove">Approved Applications</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/showacccept">Accepted Applications</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/register">Register</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/login">Login</a>
-                        </li>
-                        <li >
-                            <a th:href="@{/logout?logout}" class="btn btn-simple btn-primary" sec:authorize="isAuthenticated()">Log Out</a>
-                        </li>
-                        <li>
 
-                        </li>
-                        <li>
-
-                        </li>
-                    </ul>
-                </div><!-- /.navbar-collapse -->
             </div><!-- /.container-->
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="navigation-example-2">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="btn btn-simple btn-primary" href="/listprograms">List Programs</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-simple btn-primary" href="/showprograms">View Applications</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-simple btn-primary" href="/listprograms">List Programs</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-simple btn-primary" href="/showapprove">Approved Applications</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-simple btn-primary" href="/showacccept">Accepted Applications</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-simple btn-primary" href="/register">Register</a>
+                    </li>
+                    <li>
+                        <a class="btn btn-simple btn-primary" href="/login">Login</a>
+                    </li>
+                    <li >
+                        <a th:href="@{/logout?logout}" class="btn btn-simple btn-primary" sec:authorize="isAuthenticated()">Log Out</a>
+                    </li>
+                    <li>
+
+                    </li>
+                    <li>
+
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
         </nav>
         <div class="header" style="background-image: url('/registertemplate/img/students.jpeg');
     ">
@@ -142,6 +144,7 @@
 </div>
 
 <div th:fragment="BARfooter">
+
 
     <footer class="footer footer-big footer-black">
         <!-- .footer-black is another class for the footer, for the transparent version, we recommend you to change the url of the image with your favourite image.          -->
