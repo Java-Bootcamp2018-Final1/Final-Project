@@ -1,6 +1,7 @@
 package com.example.demo.Models;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
@@ -18,6 +19,7 @@ public class Student {
 
     @NotEmpty
     @Column(unique = true)
+    @Email
     private String userEmail;
 
     private String firstName;

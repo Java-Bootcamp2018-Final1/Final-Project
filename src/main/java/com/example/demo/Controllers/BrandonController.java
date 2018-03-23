@@ -52,11 +52,14 @@ public class BrandonController {
             System.out.println(result.toString());
             return "register";
         }
-        else{
+        System.out.println(student.getUserEmail());
             methodsService.registerStudent(student);
+
             return "redirect:/";
-        }
+
     }
+
+
 @GetMapping("/showprograms")
     public String showListedPrograms(Model model){
 
@@ -84,11 +87,17 @@ public class BrandonController {
     }
 
     // This Method returns a model containing a list of Programs Suggested for the User
+    @RequestMapping("/suggestedprograms")
     public String suggestPrograms(Model model, Authentication authentication){
         AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
         Student student = appUser.getStudent();
         model.addAttribute("listprograms", student.getQualifiedProgram());
-        return "";
+
+        /*for(Programme stu : student.getQualifiedProgram()){
+            model.addAttribute("listprograms", stu.getProgramName());
+            System.out.println(stu.getProgramName());
+        }*/
+        return "suggested";
     }
 
     // This Method allows a user to accept an admission offer for a program

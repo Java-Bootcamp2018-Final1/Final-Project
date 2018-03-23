@@ -35,12 +35,17 @@ public String getSavePage(Model model){
     return "register";
 }
     @RequestMapping("/save")
-    public String saveUser(@ModelAttribute("stu") Student student ){
+    public String saveUser(@ModelAttribute("stu") Student student, BindingResult result ){
+    AppUser user = new AppUser();
 
+        if(result.hasErrors())
+        {
+            System.out.println(result.toString());
+            return "register";
+        }
         //String
         methodsService.registerStudent(student);
-
-        return "redirect:/";
+        return "redirect:/login";
     }
 
 }
