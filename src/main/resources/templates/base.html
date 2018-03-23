@@ -19,12 +19,14 @@
     <link href="/registertemplate/css/demo.css" rel="stylesheet">
     <link href="/registertemplate/css/examples.css" rel="stylesheet">
 
+
+
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link href="/registertemplate/css/themify-icons.css" rel="stylesheet">
 
-
+    <link href="/registertemplate/css/drop.css" rel="stylesheet">
 
 </head>
 </div>
@@ -53,41 +55,81 @@
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navigation-example-2">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/listprograms">List Programs</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/showprograms">View Applications</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/listprograms">List Programs</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/showapprove">Approved Applications</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/showacccept">Show All Accepted Applications</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/listprogramstoaccept">Accepted Students by Program</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/register">Register</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-simple btn-primary" href="/login">Login</a>
-                        </li>
-                        <li >
-                            <a th:href="@{/logout?logout}" class="btn btn-simple btn-primary" sec:authorize="isAuthenticated()">Log Out</a>
-                        </li>
-                        <li>
 
-                        </li>
-                        <li>
+                    <ul class="hList">
 
-                        </li>
+                            <a href="#click" class="menu" style="margin-left: 40px;">
+                                <h3>animals</h3>
+                                <ul class="menu-dropdown">
+                                    <li>cat</li>
+                                    <li>dog</li>
+                                    <li>horse</li>
+                                    <li>cow</li>
+                                    <li>pig</li>
+
+                                </ul>
+                            </a>
+
+
+                            <a href="#click" class="menu" style="margin-left: 40px;">
+                                <h3 >names</h3>
+                                <ul class="menu-dropdown">
+                                    <li>Kevin</li>
+                                    <li>Jim</li>
+                                    <li>Andy</li>
+                                </ul>
+                            </a>
+
+                            <a href="#click" class="menu" style="margin-left: 40px;">
+                                <h3>things</h3>
+                                <ul class="menu-dropdown">
+                                    <li>bench</li>
+                                    <li>pizza</li>
+                                    <li>Honda CB125</li>
+                                    <li>space</li>
+                                    <li>black matter</li>
+
+                                </ul>
+                            </a>
+
                     </ul>
+                    <!--<ul class="nav navbar-nav navbar-right">-->
+                        <!--<li>-->
+                            <!--<a class="btn btn-simple btn-primary" href="/listprograms">List Programs</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a class="btn btn-simple btn-primary" href="/showprograms">View Applications</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a class="btn btn-simple btn-primary" href="/listprograms">List Programs</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a class="btn btn-simple btn-primary" href="/showapprove">Approved Applications</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a class="btn btn-simple btn-primary" href="/showacccept">Show All Accepted Applications</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a class="btn btn-simple btn-primary" href="/listprogramstoaccept">Accepted Students by Program</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a class="btn btn-simple btn-primary" href="/register">Register</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+                            <!--<a class="btn btn-simple btn-primary" href="/login">Login</a>-->
+                        <!--</li>-->
+                        <!--<li >-->
+                            <!--<a th:href="@{/logout?logout}" class="btn btn-simple btn-primary" sec:authorize="isAuthenticated()">Log Out</a>-->
+                        <!--</li>-->
+                        <!--<li>-->
+
+                        <!--</li>-->
+                        <!--<li>-->
+
+                        <!--</li>-->
+                    <!--</ul>-->
+
+
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-->
         </nav>
