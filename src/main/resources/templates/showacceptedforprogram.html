@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security4">
+<div th:replace="base :: BARheader"></div>
+<body class="about-us">
+
+<div th:replace="base :: BARnav">
+</div>
+
+
+<div class="wrapper">
+    <div class="main">
+        <div class="section section-nude">
+            <div class="container">
+                <ul th:each="progs : ${listaccepted}">
+                    <li th:text="${progs.userEmail}"></li>
+                    </li>
+
+                </ul>
+
+            </div></div></div>
+</div>
+
+
+
+</body>
+
+<div th:replace="base :: BARfooter"></div>
+</html>

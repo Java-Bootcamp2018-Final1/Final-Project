@@ -167,15 +167,17 @@ public class BrandonController {
     }
 
     // This method allows an Admin to add another Admin
+    @GetMapping("/registeradmin")
     public String addAnAdmin(Model model){
         model.addAttribute("newAdmin", new AppUser());
-        return "";
+        return "registeradmin";
     }
 
     //This method processes and saves an added Admin
+    @PostMapping("/registeradmin")
     public String processAddedAdmin(@Valid @ModelAttribute("newAdmin") AppUser appUser, BindingResult result){
         methodsService.addAdministrator(appUser);
-        return "";
+        return "redirect:/";
     }
 
     //This method allows an Admin to Approve a student for a program
@@ -185,12 +187,18 @@ public class BrandonController {
         methodsService.approveStudent(student,programme);
         return "";
     }
+    @GetMapping("/listprogramstoaccept")
+    public String showListProgramstoaccept(Model model){
+        model.addAttribute("programlist",programmeRepository.findAll());
+        return "listprogramaccepted";
+    }
 
     // This Method returns a model showing students who have accepted admission to a program
+    @RequestMapping("/listprogramaccepted/{id}")
     public String showAcceptedStudentsForProgram(@PathVariable("id") long id,Model model){
         Programme programme =programmeRepository.findOne(id);
-        model.addAttribute(programme.getAcceptedStudents());
-        return "";
+        model.addAttribute("listaccepted",programme.getAcceptedStudents());
+        return "showacceptedforprogram";
     }
 
 }

@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security4">
+<div th:replace="base :: BARheader"></div>
+<body class="about-us">
+
+<div th:replace="base :: BARnav">
+</div>
+
+
+<div class="wrapper">
+    <div class="main">
+        <div class="section section-nude">
+            <div class="container">
+                <ul th:each="progs : ${programlist}">
+                    <li th:text="${progs.programName}"></li>
+                    </li>
+                    <a th:href="@{/listprogramaccepted/{id} (id = ${progs.id})}">show accepted for this program</a>
+
+                </ul>
+
+            </div></div></div>
+</div>
+
+
+
+</body>
+
+<div th:replace="base :: BARfooter"></div>
+</html>
