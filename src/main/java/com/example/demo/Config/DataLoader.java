@@ -256,5 +256,6 @@ public class DataLoader implements CommandLineRunner {
         for (Programme programme2:programmeRepository.findAll()) {
             System.out.println(programme2.toString());
         }
+
     }
 }
