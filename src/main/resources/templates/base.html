@@ -72,15 +72,42 @@
                         <li>
                             <a class="btn btn-simple btn-primary" href="/listprogramstoaccept">Accepted Students by Program</a>
                         </li>
-                        <li>
+
+                        <li class="dropdown">
+                            <button href="#" class="dropdown-toggle btn btn-danger" data-toggle="dropdown" aria-expanded="true">Login and Register <b class="caret"></b></button>
+                            <!--                                  You can add classes for different colours on the next element -->
+                            <ul class="dropdown-menu dropdown-danger dropdown-menu-right">
+                                <li class="dropdown-header">Login and Register</li>
+                                <li><a href="/login">Login</a></li>
+                                <li><a href="/registeradmin">Register Admin</a></li>
+                                <li class="divider"></li>
+                                <li><a href="/register">Student Register</a></li>
+                                <li class="divider"></li>
+<!--
+                                <li><a th:href="@{/logout?logout}" class="btn btn-simple btn-primary" sec:authorize="isAuthenticated()">Logout</a></li>
+-->
+                            </ul>
+                        </li>
+
+
+
+
+
+                        <!--<li>
                             <a class="btn btn-simple btn-primary" href="/register">Register</a>
                         </li>
                         <li>
+                            <a class="btn btn-simple btn-primary" href="/registeradmin">Register Admin</a>
+                        </li>
+                        <li>
                             <a class="btn btn-simple btn-primary" href="/login">Login</a>
+                        </li>-->
+                        <li>
+                            <a class="btn btn-simple btn-primary" href="/suggestedprograms">Suggested Programs</a>
                         </li>
-                        <li >
+                       <!-- <li >
                             <a th:href="@{/logout?logout}" class="btn btn-simple btn-primary" sec:authorize="isAuthenticated()">Log Out</a>
-                        </li>
+                        </li>-->
                         <li>
 
                         </li>
@@ -144,7 +171,8 @@
 
 </div>
 
-<div th:fragment="BARfooter">
+
+<div th:fragment="BARfooter" class="footer navbar-fixed-bottom">
 
     <footer class="footer footer-big footer-black">
         <!-- .footer-black is another class for the footer, for the transparent version, we recommend you to change the url of the image with your favourite image.          -->
