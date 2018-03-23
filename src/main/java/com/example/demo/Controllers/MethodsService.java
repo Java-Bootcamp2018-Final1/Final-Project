@@ -120,9 +120,23 @@ public class MethodsService {
 
     // Checks the qualifications for all students for all programs
     public void qualifyStudents(StudentRepository studentRepository1,ProgrammeRepository programmeRepository1){
-        for (Programme programme:programmeRepository1.findAll()) {
-            for (Student student:studentRepository1.findAll()) {
-                qualifyForProgram(student,programme);
+        int x =0;
+        /*for (Programme programme4:programmeRepository1.findAll()) {
+
+            for (Student student4:studentRepository1.findAll()) {
+
+                qualifyForProgram(student4,programme4);
+                x=x+1;
+                System.out.println(x);
+            }
+        }*/
+        for (Student student4:studentRepository1.findAll()) {
+
+            for (Programme programme4:programmeRepository1.findAll()) {
+
+                qualifyForProgram(student4,programme4);
+                x=x+1;
+                System.out.println(x);
             }
         }
     }

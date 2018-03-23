@@ -248,13 +248,21 @@ public class DataLoader implements CommandLineRunner {
 /*
         methodsService.sendAdmissionEmailWithThymeleaf(studentRepository.findOne(new Long(3)),programmeRepository.findOne(new Long(2)));
 */
-
-
 /*
         methodsService.approveStudent(studentRepository.findOne(new Long(7)),programmeRepository.findOne(new Long(1)));
 */
         for (Programme programme2:programmeRepository.findAll()) {
             System.out.println(programme2.toString());
         }
+        methodsService.applyForProgramme(studentRepository.findOne(new Long(1)),programmeRepository.findOne(new Long(1)));
+        methodsService.applyForProgramme(studentRepository.findOne(new Long(2)),programmeRepository.findOne(new Long(2)));
+        methodsService.applyForProgramme(studentRepository.findOne(new Long(3)),programmeRepository.findOne(new Long(1)));
+        methodsService.applyForProgramme(studentRepository.findOne(new Long(4)),programmeRepository.findOne(new Long(2)));
+        methodsService.applyForProgramme(studentRepository.findOne(new Long(5)),programmeRepository.findOne(new Long(1)));
+        methodsService.applyForProgramme(studentRepository.findOne(new Long(6)),programmeRepository.findOne(new Long(2)));
+        methodsService.applyForProgramme(studentRepository.findOne(new Long(7)),programmeRepository.findOne(new Long(1)));
+        methodsService.acceptProgram(studentRepository.findOne(new Long(2)),programmeRepository.findOne(new Long(2)));
+        methodsService.acceptProgram(studentRepository.findOne(new Long(4)),programmeRepository.findOne(new Long(2)));
+        methodsService.acceptProgram(studentRepository.findOne(new Long(5)),programmeRepository.findOne(new Long(1)));
     }
 }
