@@ -5,6 +5,7 @@ import com.example.demo.Repositories.ProgrammeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -27,5 +28,8 @@ public class RiriController {
         model.addAttribute("showprogs",programmeRepository.findAll());
         return "index";
     }
-
+@GetMapping("/whereareyou")
+    public String riri(){
+       return "test";
+}
 }

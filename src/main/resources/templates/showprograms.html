@@ -11,12 +11,13 @@
     <div class="main">
         <div class="section section-nude">
             <div class="container">
+                <div class="ririshort">
                 <h3 class="title-uppercase">Click to view List of Applied Students</h3>
 
                 <ul th:each="showpro : ${showprogs}">
                     <a th:href="@{/listapplied/{id} (id = ${showpro.id})}" th:inline="text">[[${showpro.programName}]]</a>
 
-                </ul>
+                </ul></div>
             </div></div></div>
 </div>
 
