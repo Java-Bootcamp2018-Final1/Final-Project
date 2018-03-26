@@ -188,13 +188,13 @@ public class DataLoader implements CommandLineRunner {
                 "those interested in careers in computers and Information Technology (IT). Based on your skills, experience, and English level, " +
                 "you may be able to enter one or more tracks that will help you further your education and training and find a job.");
         programme.setCriteriaDescription("English Language Learner\n"+
-                "Unemployed with barriers to employment</br>\n"+
-                "Underemployed with barriers to better employment</br>\n"+
-                "In addition, you should:</br>\n"+
-                "Be comfortable using computers for everyday purposes</br>\n"+
-                "Have a strong interest in an IT career</br>\n"+
-                "Have a high school diploma or GED</br>\n"+
-                "Be legally authorized to work in the U.S.</br>");
+                "Unemployed with barriers to employment\n"+
+                "Underemployed with barriers to better employment\n"+
+                "In addition, you should:\n"+
+                "Be comfortable using computers for everyday purposes\n"+
+                "Have a strong interest in an IT career\n"+
+                "Have a high school diploma or GED\n"+
+                "Be legally authorized to work in the U.S.");
         programme.setNumberAccepted(0);
         programme.setNumberApplicants(0);
         programme.setEnglishLang(3);
