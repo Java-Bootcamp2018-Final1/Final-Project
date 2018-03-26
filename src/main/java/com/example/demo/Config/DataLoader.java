@@ -187,18 +187,18 @@ public class DataLoader implements CommandLineRunner {
         programme.setProgramDescription("TechHire is a new U.S. Department of Labor grant-funded training program for " +
                 "those interested in careers in computers and Information Technology (IT). Based on your skills, experience, and English level, " +
                 "you may be able to enter one or more tracks that will help you further your education and training and find a job.");
-        programme.setCriteriaDescription("English Language Learner\n"+
-                "Unemployed with barriers to employment\n"+
-                "Underemployed with barriers to better employment\n"+
-                "In addition, you should:\n"+
-                "Be comfortable using computers for everyday purposes\n"+
-                "Have a strong interest in an IT career\n"+
-                "Have a high school diploma or GED\n"+
+        programme.setCriteriaDescription("English Language Learner"+"<br>"+
+                "Unemployed with barriers to employment"+"<br>"+
+                "Underemployed with barriers to better employment"+"<br>"+
+                "In addition, you should:"+"<br>"+
+                "Be comfortable using computers for everyday purposes"+"<br>"+
+                "Have a strong interest in an IT career"+"<br>"+
+                "Have a high school diploma or GED"+"<br>"+
                 "Be legally authorized to work in the U.S.");
         programme.setNumberAccepted(0);
         programme.setNumberApplicants(0);
         programme.setEnglishLang(3);
-        programme.setEmployment(1);
+        programme.setEmployment(2);
         programme.setComputerSkill(2);
         programme.setItInterest(3);
         programme.setEducation(2);
@@ -219,17 +219,17 @@ public class DataLoader implements CommandLineRunner {
                 "immersive software engineering program funded by the Department of Labor. This course aims to increase the number " +
                 "of skilled software developers in this country. We do this by accepting qualified candidates who cannot afford " +
                 "the cost of a coding boot camp. If accepted into the program all fees will be covered by the program.");
-        programme.setCriteriaDescription("Basic understanding of object oriented programming\n"+
-                "Previous experience with an object-oriented language\n"+
-                "Major in Computer Science / Information Systems\n"+
-                "Graduated within the last 6 years\n"+
-                "Currently earning 42,000 or less\n"+
+        programme.setCriteriaDescription("Basic understanding of object oriented programming"+"<br>"+
+                "Previous experience with an object-oriented language"+"<br>"+
+                "Major in Computer Science / Information Systems"+"<br>"+
+                "Graduated within the last 6 years"+"<br>"+
+                "Currently earning 42,000 or less"+"<br>"+
                 "Be able to work in the United States");
         programme.setNumberAccepted(0);
         programme.setNumberApplicants(0);
         programme.setEnglishLang(null);
         programme.setEmployment(null);
-        programme.setComputerSkill(1);
+        programme.setComputerSkill(null);
         programme.setItInterest(null);
         programme.setEducation(null);
         programme.setMajorCS(true);
