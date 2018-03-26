@@ -14,6 +14,8 @@
 
                     <ul th:each="suggest : ${listprograms}">
                         <li th:text="${suggest.getProgramName()}"></li>
+
+                    <a th:href="@{/applyforaprogram/{id} (id = ${suggest.id})}">Apply</a>
                     </ul>
                 </div>
             </div></div></div>

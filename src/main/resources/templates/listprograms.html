@@ -13,22 +13,13 @@
                 <h3 class="title-uppercase">Our Programmes</h3>
 
     <ul th:each="lists : ${programlist}">
-        <li th:text="${lists.programName}">
+        <h5 th:inline="text" style="color: #3c763d;">[[${lists.programName}]]</h5>
 
     </li>
-    <lablel>Criterias description:  </lablel>
-    <li th:text="${lists.criteriaDescription}">
+    <h6> Criteria for the program </h6>
+    <p th:text="${lists.criteriaDescription}">
 
-    </li>
-    <label>English language </label>
-    <li th:text="${lists.englishLang}">
-
-    </li>
-        <li th:text="${lists.majorCS}"></li>
-
-
-    <lable>legal to USA :</lable>
-    <li th:text="${lists.legalUS}"></li>
+    </p>
 
     <a th:href="@{/applyforaprogram/{id} (id = ${lists.id})}">Apply</a>
 
