@@ -14,22 +14,18 @@ public class RiriController {
     @Autowired
     ProgrammeRepository programmeRepository;
 
-   @RequestMapping("/login")
-    public String showLog(Model model){
+    @RequestMapping("/login")
+    public String showLog(Model model) {
 
         return "login";
     }
 
 
     @RequestMapping("/")
-    public String showIndex(Model model){
+    public String showIndex(Model model) {
 
         model.addAttribute("stu", new Student());
-        model.addAttribute("showprogs",programmeRepository.findAll());
+        model.addAttribute("showprogs", programmeRepository.findAll());
         return "index";
     }
-@GetMapping("/whereareyou")
-    public String riri(){
-       return "test";
-}
 }

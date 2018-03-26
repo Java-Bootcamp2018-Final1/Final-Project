@@ -54,7 +54,9 @@ public class BrandonController {
         }
         System.out.println(student.getUserEmail());
             methodsService.registerStudent(student);
-
+        for (Programme programme:programmeRepository.findAll()) {
+            methodsService.qualifyForProgram(student,programme);
+        }
             return "redirect:/login";
 
     }
@@ -73,8 +75,9 @@ public class BrandonController {
         Programme programme = programmeRepository.findOne(id);
         model.addAttribute("program",programme);
         model.addAttribute("appliedList",programme.getAppliedStudents());
+       // model.addAttribute("approvedlist", programme.getApprovedStudents());
         for(Student stu: programme.getApprovedStudents()){
-            //System.out.println(stu.getUserEmail());
+
         }
 
         return "listapplied";
@@ -125,7 +128,7 @@ public class BrandonController {
         return "redirect:/";
     }
 
-    //abe approve students
+  /*  //abe approve students
 
     public String approvestudents(@PathVariable("id")long id,Authentication authentication) throws CannotSendEmailException, IOException, URISyntaxException {
         AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
@@ -133,7 +136,7 @@ public class BrandonController {
         Programme programme =programmeRepository.findOne(id);
         methodsService.approveStudent(student,programme);
         return "redirect:/";
-    }
+    }*/
 // student accept approval
 
    //abe accept
@@ -190,7 +193,7 @@ public class BrandonController {
         Student student = studentRepository.findOne(id1);
         Programme programme = programmeRepository.findOne(id2);
         methodsService.approveStudent(student,programme);
-        return "redirect:/";
+        return "redirect:/showprograms";
     }
     @GetMapping("/listprogramstoaccept")
     public String showListProgramstoaccept(Model model){
