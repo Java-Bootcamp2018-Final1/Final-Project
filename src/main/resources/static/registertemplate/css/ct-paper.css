@@ -4608,7 +4608,10 @@ body > .navbar-collapse.collapse {
 }
 
 .footer-big {
+  padding-top: 0px;
+  /*
   padding-top: 30px;
+  */
 }
 .footer-big hr {
   margin-top: 20px;

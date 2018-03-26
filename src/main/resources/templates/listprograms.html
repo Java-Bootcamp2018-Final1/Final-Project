@@ -13,7 +13,7 @@
                 <h3 class="title-uppercase">Our Programmes</h3>
 
     <ul th:each="lists : ${programlist}">
-    <li th:text="${lists.programName}">
+        <li th:text="${lists.programName}">
 
     </li>
     <lablel>Criterias description:  </lablel>
@@ -24,13 +24,12 @@
     <li th:text="${lists.englishLang}">
 
     </li>
-    <li th:text="${lists.majorCS}">
+        <li th:text="${lists.majorCS}"></li>
 
-    </li>
+
     <lable>legal to USA :</lable>
-    <li th:text="${lists.legalUS}">
+    <li th:text="${lists.legalUS}"></li>
 
-    </li>
     <a th:href="@{/applyforaprogram/{id} (id = ${lists.id})}">Apply</a>
 
 </ul>
