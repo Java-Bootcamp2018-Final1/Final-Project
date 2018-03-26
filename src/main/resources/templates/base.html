@@ -57,19 +57,19 @@
                             <button href="#" class="dropdown-toggle btn btn-danger" data-toggle="dropdown" aria-expanded="false">Account <b class="caret"></b></button>
                             <!--                                  You can add classes for different colours on the next element -->
                             <ul class="dropdown-menu dropdown-danger dropdown-menu-right">
-                                <li class="dropdown-header">Registration</li>
-                                <li>
-                                    <a href="/register">Register</a>
-                                </li>
 
                                 <li>
+                                    <a href="/register" sec:authorize="isAnonymous()">Register</a>
+                                </li>
+
+                                <li sec:authorize="isAnonymous()">
                                     <a  href="/login">Login</a>
                                 </li>
                                 <li class="divider"></li>
 
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="/registeradmin">Register Admin</a>
+                                    <a href="/registeradmin"  sec:authorize="hasAuthority('ADMIN')" >Register Admin</a>
                                 </li>
 
                                 <li >
@@ -78,7 +78,7 @@
                             </ul>
                         </li>
 
-                        <li class="dropdown">
+                        <li class="dropdown" sec:authorize="isAuthenticated()">
                             <button href="#" class="dropdown-toggle btn btn-danger" data-toggle="dropdown" aria-expanded="false">Applications <b class="caret"></b></button>
                             <!--                                  You can add classes for different colours on the next element -->
                             <ul class="dropdown-menu dropdown-danger dropdown-menu-right">
@@ -87,18 +87,21 @@
                                     <a  href="/listprograms">List Programs</a>
                                 </li>
                                 <li>
-                                    <a  href="/showprograms">View Applications</a>
+                                    <a  href="/suggestedprograms">Suggested Programs</a>
+                                </li>
+                                <li>
+                                    <a  href="/showprograms" sec:authorize="hasAuthority('ADMIN')" >View Applications</a>
                                 </li>
                                 <li>
                                     <a  href="/showapprove">Accept Approved</a>
                                 </li>
                                 <li class="divider"></li>
-                                <li>
+                                <li sec:authorize="hasAuthority('ADMIN')" >
                                     <a  href="/listprogramstoaccept">Accepted Students by Program</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a  href="/showacccept">Show All Accepted Applications</a>
+                                    <a  href="/showacccept" sec:authorize="hasAuthority('ADMIN')" >Show All Accepted Applications</a>
                                 </li>
                             </ul>
                         </li>
@@ -193,10 +196,13 @@
                         <div class="col-md-3 col-sm-3">
                             <div class="links">
                                 <ul class="uppercase-links stacked-links">
-                                    <li>
+                                    <li sec:authorize="isAnonymous()">
                                         <a href="/login">
                                             Login
                                         </a>
+                                    </li>
+                                    <li >
+                                        <a th:href="@{/logout?logout}"  sec:authorize="isAuthenticated()">Log Out</a>
                                     </li>
 
 
@@ -207,7 +213,7 @@
                             <div class="links">
                                 <ul class="uppercase-links stacked-links">
                                     <li>
-                                        <a href="/register">
+                                        <a href="/register" sec:authorize="isAnonymous()">
                                             Register
                                         </a>
                                     </li>

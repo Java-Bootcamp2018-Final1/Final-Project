@@ -55,7 +55,7 @@ public class BrandonController {
         System.out.println(student.getUserEmail());
             methodsService.registerStudent(student);
 
-            return "redirect:/";
+            return "redirect:/login";
 
     }
 
