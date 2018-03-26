@@ -71,6 +71,7 @@ public class BrandonController {
     public String showAppliedStudentsForProgram(@PathVariable("id") long id, Model model){
 
         Programme programme = programmeRepository.findOne(id);
+        model.addAttribute("program",programme);
         model.addAttribute("appliedList",programme.getAppliedStudents());
         for(Student stu: programme.getApprovedStudents()){
             //System.out.println(stu.getUserEmail());
@@ -101,12 +102,17 @@ public class BrandonController {
     }
 
     // This Method allows a user to accept an admission offer for a program
-    public String acceptProgramOffer(@PathVariable("id") long id, Authentication authentication){
+    @RequestMapping("/acceptstudent/{id}")
+    public String acceptProgramOffer(Model model,@PathVariable("id") long id, Authentication authentication){
+
+        String s = "You accepted the program ";
+        model.addAttribute("accept", s);
         AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
+        model.addAttribute("name", appUser);
         Student student = appUser.getStudent();
         Programme programme =programmeRepository.findOne(id);
         methodsService.acceptProgram(student,programme);
-        return "";
+        return "showconfirmaion";
     }
 
     // This Method allows a user to apply for a program
@@ -119,8 +125,8 @@ public class BrandonController {
         return "redirect:/";
     }
 
-    //approve students
-    @RequestMapping("/approvestudent/{id}")
+    //abe approve students
+
     public String approvestudents(@PathVariable("id")long id,Authentication authentication) throws CannotSendEmailException, IOException, URISyntaxException {
         AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
         Student student = appUser.getStudent();
@@ -130,7 +136,7 @@ public class BrandonController {
     }
 // student accept approval
 
-    @RequestMapping("/acceptstudent/{id}")
+   //abe accept
     public String acceptStudent(@PathVariable("id")long id,Authentication authentication, Model model){
         String s = "You accepted the program ";
         model.addAttribute("accept", s);
@@ -146,10 +152,8 @@ public class BrandonController {
     public String showApprovedPrograms(Model model, Authentication authentication){
         AppUser appUser = appUserRepository.findAppUserByAppUsername(authentication.getName());
         Student student = appUser.getStudent();
+        model.addAttribute("listprograms", student.getApprovedProgram());
 
-        for(Programme pro : student.getApprovedProgram()){
-            model.addAttribute("listprograms", pro.getApprovedStudents());
-        }
         return "showapprove";
     }
 
@@ -181,11 +185,12 @@ public class BrandonController {
     }
 
     //This method allows an Admin to Approve a student for a program
+    @RequestMapping("/approvestudent/{id1}/{id2}")
     public String approveStudentForProgram(@PathVariable("id1") long id1,@PathVariable("id2")long id2) throws CannotSendEmailException, IOException, URISyntaxException {
         Student student = studentRepository.findOne(id1);
         Programme programme = programmeRepository.findOne(id2);
         methodsService.approveStudent(student,programme);
-        return "";
+        return "redirect:/";
     }
     @GetMapping("/listprogramstoaccept")
     public String showListProgramstoaccept(Model model){

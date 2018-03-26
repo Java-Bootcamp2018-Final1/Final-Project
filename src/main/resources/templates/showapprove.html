@@ -15,7 +15,7 @@
                 <h3 class="title-uppercase">List of Applicants</h3>
 
                 <ul th:each="lists :${listprograms}">
-                    <li th:text="${lists.getUserEmail()}"></li>
+                    <li th:text="${lists.programName}"></li>
                     <a th:href="@{/acceptstudent/{id} (id = ${lists.id})}">accept</a>
 
                 </ul></div>
