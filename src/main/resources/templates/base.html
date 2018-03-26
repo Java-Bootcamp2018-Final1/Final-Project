@@ -93,7 +93,7 @@
                                     <a  href="/showprograms" sec:authorize="hasAuthority('ADMIN')" >View Applications</a>
                                 </li>
                                 <li>
-                                    <a  href="/showapprove">Accept Approved</a>
+                                    <a  href="/showapprove" sec:authorize="hasAuthority('STUDENT')">Accept Approved</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li sec:authorize="hasAuthority('ADMIN')" >

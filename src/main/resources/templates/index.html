@@ -15,6 +15,9 @@
 
                     <ul th:each="showpro : ${showprogs}">
                         <h5 th:inline="text">[[${showpro.programName}]]</h5>
+                        <p sec:authorize="hasAuthority('ADMIN')" th:inline="text">Number of Applicants : [[${showpro.numberApplicants}]]</p>
+                        <p sec:authorize="hasAuthority('ADMIN')" th:inline="text">Number of Accepted : [[${showpro.numberAccepted}]]</p>
+
                         <p th:inline="text">[[${showpro.programDescription}]]</p>
 
                     </ul>

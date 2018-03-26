@@ -11,15 +11,16 @@
     <div class="main">
         <div class="section section-nude">
             <div class="container">
-                <div class="ririheight">
                 <h3 class="title-uppercase" th:inline="text">List of Applicants for [[${program.programName}]]</h3>
-                <ul th:each="lists :${appliedList}">
 
-                    <li th:text="${lists.getUserEmail()}"></li>
+                <ul th:each="applicant :${appliedList}">
+                    <div th:if="!(${#lists.contains(program.approvedStudents,applicant)})" >
+                    <li th:text="${applicant.getUserEmail()}"></li>
 
-                    <a th:href="@{/approvestudent/{id1}/{id2} (id1 = ${lists.id},id2 = ${program.id})}">approve</a>
+                    <a th:href="@{/approvestudent/{id1}/{id2} (id1 = ${applicant.id},id2 = ${program.id})}">approve</a>
+                    </div>
 
-                </ul></div></div>
+                </ul>
             </div></div></div>
 </div>
 

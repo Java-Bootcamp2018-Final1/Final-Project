@@ -12,11 +12,12 @@
         <div class="section section-nude">
             <div class="container">
                 <div class="ririshort">
-                <h3 class="title-uppercase">List of Applicants</h3>
+                <h3 class="title-uppercase">List of Approved Programs</h3>
 
                 <ul th:each="lists :${listprograms}">
+
                     <li th:text="${lists.programName}"></li>
-                    <a th:href="@{/acceptstudent/{id} (id = ${lists.id})}">accept</a>
+                    <a th:href="@{/acceptstudent/{id} (id = ${lists.id})}">Accept</a>
 
                 </ul></div>
             </div></div></div>
