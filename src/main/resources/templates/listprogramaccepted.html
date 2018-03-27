@@ -13,8 +13,8 @@
                     <h3 class="title-uppercase">Our Programmes</h3>
 
                     <ul th:each="progs : ${programlist}">
-                        <li th:text="${progs.programName}"></li>
-                        </li>
+                        <h5 th:text="${progs.programName}"></h5>
+
                         <a th:href="@{/listprogramaccepted/{id} (id = ${progs.id})}">show accepted for this program</a>
 
                     </ul>

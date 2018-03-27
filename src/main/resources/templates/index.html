@@ -15,9 +15,11 @@
 
                     <ul th:each="showpro : ${showprogs}">
                         <h5 th:inline="text">[[${showpro.programName}]]</h5>
-                        <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/listapplied/{id} (id = ${showpro.id})}" th:inline="text"> Number of Applicants : [[${showpro.numberApplicants}]]</a>
+                        <th:block sec:authorize="hasAuthority('ADMIN')">
+                        <a th:href="@{/listapplied/{id} (id = ${showpro.id})}" th:inline="text"> Number of Applicants : [[${showpro.numberApplicants}]]</a>
                         <br />
-                        <a sec:authorize="hasAuthority('ADMIN')" th:href="@{/listprogramaccepted/{id} (id = ${showpro.id})}" th:inline="text"> Number of Accepted : [[${showpro.numberAccepted}]]</a>
+                        <a th:href="@{/listprogramaccepted/{id} (id = ${showpro.id})}" th:inline="text"> Number of Accepted : [[${showpro.numberAccepted}]]</a>
+                        </th:block>
 
                         <p th:inline="text">[[${showpro.programDescription}]]</p>
 
