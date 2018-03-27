@@ -76,18 +76,6 @@ public class BrandonController {
         model.addAttribute("program",programme);
         model.addAttribute("appliedList",programme.getAppliedStudents());
        // model.addAttribute("approvedlist", programme.getApprovedStudents());
-        for(Student stu: programme.getAppliedStudents())
-        {
-             model.addAttribute("details", stu.getFirstName());
-             System.out.println(stu.getFirstName());
-             stu.getComputerSkill();
-             stu.getCurrentEarning();
-             stu.getEmployment();
-             stu.getItInterest();
-             stu.getEnglishLang();
-             stu.getLegalUS();
-             stu.getMajorCS();
-        }
 
 
         return "listapplied";

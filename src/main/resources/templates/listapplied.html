@@ -15,17 +15,39 @@
 
                 <h3 class="title-uppercase" th:inline="text">List of Applicants for [[${program.programName}]]</h3>
 
-                <ul th:each="applicant :${appliedList}">
+                <!--<ul th:each="applicant :${appliedList}">
                     <th:block th:if="!(${#lists.contains(program.approvedStudents,applicant)})" >
                         <p th:inline="text">[[${applicant.getFirstName()}]]   [[${applicant.getLastName()}]]</p>
 
-                    <li th:text="${applicant.getUserEmail()}"></li>
+                    <p th:text="${applicant.getUserEmail()}"></p>
 
                         <a th:href="@{/listdetails/{id}/{id2}  (id = ${applicant.id},id2 = ${program.id})}">View Details</a><br />
                     <a th:href="@{/approvestudent/{id1}/{id2} (id1 = ${applicant.id},id2 = ${program.id})}">Approve</a>
                     </th:block>
 
-                </ul>
+                </ul>-->
+
+
+                    <table id="bootstrap-table" class="table table-hover">
+                        <thead>
+                        <tr>
+
+                        </tr>
+                        </thead>
+
+
+                        <tr th:each="applicant :${appliedList}">
+                            <th:block th:if="!(${#lists.contains(program.approvedStudents,applicant)})" >
+                                <td th:inline="text">[[${applicant.getFirstName()}]]   [[${applicant.getLastName()}]]</td>
+
+                                <td th:text="${applicant.getUserEmail()}"></td>
+                                <td ><a th:href="@{/listdetails/{id}/{id2}  (id = ${applicant.id},id2 = ${program.id})}">View Details</a></td>
+                                <td><a th:href="@{/approvestudent/{id1}/{id2} (id1 = ${applicant.id},id2 = ${program.id})}">Approve</a></td>
+                            </th:block>
+                        </tr>
+
+                    </table>
+
                 </div>
             </div></div></div>
 </div>
@@ -33,5 +55,3 @@
 
 <div th:replace="base :: BARfooter"></div>
 </html>
-
-
