@@ -6,12 +6,12 @@
 <div th:replace="base :: BARnav">
 </div>
 
-
 <div class="wrapper">
     <div class="main">
         <div class="section section-nude">
             <div class="container">
                 <div class="ririheight">
+                    <h3>Students who have accepted this programme</h3>
                 <ul th:each="progs : ${listaccepted}">
                     <li th:text="${progs.userEmail}"></li>
                     </li>
