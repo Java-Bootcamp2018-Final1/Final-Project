@@ -164,7 +164,7 @@ public class MethodsService {
                 .body("")//this will be overridden by the template, anyway
                 .encoding("UTF-8").build();
 
-        String template = "/emailTemplate";
+        String template = "emailTemplate";
 
         Map<String, Object> modelObject = ImmutableMap.of(
                 "fname", student.getFirstName(),
