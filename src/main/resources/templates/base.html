@@ -84,10 +84,10 @@
                             <ul class="dropdown-menu dropdown-danger dropdown-menu-right">
                                 <li class="dropdown-header">List applications</li>
                                 <li>
-                                    <a  href="/listprograms">List Programs</a>
+                                    <a  href="/listprograms" sec:authorize="hasAuthority('STUDENT')">List Programs</a>
                                 </li>
                                 <li>
-                                    <a  href="/suggestedprograms">Suggested Programs</a>
+                                    <a  href="/suggestedprograms" sec:authorize="hasAuthority('STUDENT')">Suggested Programs</a>
                                 </li>
                                 <li>
                                     <a  href="/showprograms" sec:authorize="hasAuthority('ADMIN')" >View Applications</a>

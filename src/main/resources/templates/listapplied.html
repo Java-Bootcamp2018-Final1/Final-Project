@@ -11,6 +11,8 @@
     <div class="main">
         <div class="section section-nude">
             <div class="container">
+                <div class="ririheight">
+
                 <h3 class="title-uppercase" th:inline="text">List of Applicants for [[${program.programName}]]</h3>
 
                 <ul th:each="applicant :${appliedList}">
@@ -21,11 +23,9 @@
                     </div>
 
                 </ul>
+                </div>
             </div></div></div>
 </div>
-
-
-
 </body>
 
 <div th:replace="base :: BARfooter"></div>
