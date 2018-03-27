@@ -76,13 +76,39 @@ public class BrandonController {
         model.addAttribute("program",programme);
         model.addAttribute("appliedList",programme.getAppliedStudents());
        // model.addAttribute("approvedlist", programme.getApprovedStudents());
-        for(Student stu: programme.getApprovedStudents()){
-
+        for(Student stu: programme.getAppliedStudents())
+        {
+             model.addAttribute("details", stu.getFirstName());
+             System.out.println(stu.getFirstName());
+             stu.getComputerSkill();
+             stu.getCurrentEarning();
+             stu.getEmployment();
+             stu.getItInterest();
+             stu.getEnglishLang();
+             stu.getLegalUS();
+             stu.getMajorCS();
         }
+
 
         return "listapplied";
     }
 
+    // show details of student
+    @RequestMapping("/listdetails/{id}/{id2}")
+    public String listDetails(@PathVariable("id") long id, @PathVariable("id2")long id2,Model model){
+
+        Student student = studentRepository.findOne(id);
+        Programme programme = programmeRepository.findOne(id2);
+
+        model.addAttribute("appliedList",student);
+
+       model.addAttribute("progid",programme.getId());
+        // model.addAttribute("approvedlist", programme.getApprovedStudents());
+
+
+
+        return "details";
+    }
     // This Method returns a model containg a list of all programs
     @GetMapping("/listprograms")
     public String showListPrograms(Model model){

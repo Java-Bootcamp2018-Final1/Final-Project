@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security4">
+<div th:replace="base :: BARheader"></div>
+<body class="about-us">
+
+<div th:replace="base :: BARnav"></div>
+<!-- wrapper ---->
+<div class="wrapper">
+    <div class="main">
+        <div class="section section-nude">
+            <div class="container" >
+                <div class="ririheight">
+                    <h3 class="title-uppercase">Student Details</h3>
+
+                    <ul th:each="applicant :${appliedList}">
+                        <!--<div th:if="!(${#lists.contains(program.approvedStudents,applicant)})" >-->
+                            <p th:inline="text">[[${applicant.getFirstName()}]]   [[${applicant.getLastName()}]]</p>
+                            <!--   <li th:text="${applicant.getFirstName()}"></li>-->
+                            <p th:text="${applicant.getUserEmail()}"></p>
+                       <p th:inline="text">  Grad year : [[${applicant.getGradYear()}]]</p>
+                        <p th:inline="text">  Current Earning : [[${applicant.getCurrentEarning()}]]</p>
+
+                        <th:block th:switch="${applicant.getEnglishLang()}">
+
+                            <p th:case="'1'">
+                                English Language: Low
+                                <br /> </p>
+                            <p th:case="'2'">
+                                English Language: Medium
+                                <br /></p>
+                            <p th:case="'3'">
+                                English Language: High
+                                <br /></p>
+                        </th:block>
+                        <th:block th:switch="${applicant.getEducation()}">
+
+                            <p th:case="'1'">
+                               Education : NO HS DIPLOMA/GED
+                                <br /></p>
+                            <p th:case="'2'">
+                                Education : HS DIPLOMA/GED
+                                <br /> </p>
+                            <p th:case="'3'">
+                                Education : SOME COLLEGE
+                                <br /></p>
+                            <p th:case="'4'">
+                                Education : B.A./B.S
+                                <br />  </p>
+                            <p th:case="'5'">
+                                Education : POSTGRADUATE EXPERIENCE
+                                <br /> </p>
+
+                        </th:block>
+
+                        <th:block th:switch="${applicant.getMajorCS()}">
+
+                            <p th:case="'0'">
+                                Computer Science Major: No
+                                <br />
+                            </p>
+                            <p th:case="'1'">
+                                Computer Science Major: Yes
+                                <br />
+                            </p>
+
+                        </th:block>
+
+
+                        <th:block th:switch="${applicant.getMajorCS()}">
+
+                            <p th:case="'0'">
+                                Computer Science Major: No
+                                <br />
+                            </p>
+                            <p th:case="'1'">
+                                Computer Science Major: Yes
+                                <br />
+                            </p>
+                        </th:block>
+
+                        <th:block th:switch="${applicant.getLegalUS()}">
+
+                            <p th:case="'1'">
+                                Legal in US: yes
+                                <br />
+                            </p>
+                            <p th:case="'0'">
+                                Legal in US : No
+                                <br />
+                            </p>
+
+                        </th:block>
+
+
+                        <th:block th:switch="${applicant.getEmployment()}">
+
+                            <p th:case="'1'">
+                                Employment: UNEMPLOYED
+                                <br />
+                            </p>
+                            <p th:case="'2'">
+                                Employment: UNDEREMPLOYED
+                                <br />
+                            </p>
+                            <p th:case="'3'">
+                                Employment: FULLY EMPLOYED
+                                <br />
+                            </p>
+                        </th:block>
+
+
+
+                        <th:block th:switch="${applicant.getOopUnderstanding()}">
+
+                            <p th:case="'1'">
+                                OOP understanding: Low
+                                <br />
+                            </p>
+                            <p th:case="'2'">
+                                OOP understanding: Medium
+                                <br />
+                            </p>
+                            <p th:case="'3'">
+                                OOP understanding: High
+                                <br />
+                            </p>
+                        </th:block>
+
+
+
+                        <th:block th:switch="${applicant.getOolExperience()}">
+
+                            <p th:case="'1'">
+                                OOL Experience: Low
+                                <br />
+                            </p>
+                            <p th:case="'2'">
+                                OOL Experience: Medium
+                                <br />
+                            </p>
+                            <p th:case="'3'">
+                                OOL Experience: High
+                                <br />
+                            </p>
+                        </th:block>
+
+
+
+                        <th:block th:switch="${applicant.getItInterest()}">
+
+                            <p th:case="'1'">
+                                It interest: Low
+                                <br />
+                            </p>
+                            <p th:case="'2'">
+                                It interest: Medium
+                                <br />
+                            </p>
+                            <p th:case="'3'">
+                                It interest: High
+                                <br />
+                            </p>
+                        </th:block>
+
+
+                        <th:block th:switch="${applicant.getComputerSkill()}">
+
+                            <p th:case="'1'">
+                                Computer skills: Low
+                                <br />
+                            </p>
+                            <p th:case="'2'">
+                                Computer skills: medium
+                                <br />
+                            </p>
+                            <p th:case="'3'">
+                                Computer skills: high
+                                <br />
+                            </p>
+                        </th:block>
+
+                            <a th:href="@{/approvestudent/{id1}/{id2} (id1 = ${applicant.id},id2 = ${progid})}">approve</a>
+
+
+                    </ul>
+                </div>
+            </div></div></div>
+
+</div>
+<div th:replace="base :: BARfooter"></div>
+
+
+
+</body>
+
+
+</html>
