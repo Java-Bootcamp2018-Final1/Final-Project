@@ -12,7 +12,7 @@ import java.util.List;
 
 @Component
 public class DataLoader implements CommandLineRunner {
-
+/*
     @Autowired
     AppRoleRepository appRoleRepository;
 
@@ -25,11 +25,11 @@ public class DataLoader implements CommandLineRunner {
     @Autowired
     MethodsService methodsService;
 
-    LocalDateTime localDateTime;
+    LocalDateTime localDateTime;*/
 
     @Override
     public void run(String... strings) throws Exception {
-        System.out.println("Loading data ...");
+       /* System.out.println("Loading data ...");
         AppRole role = new AppRole();
         role.setRoleName("STUDENT");
         appRoleRepository.save(role);
@@ -245,12 +245,12 @@ public class DataLoader implements CommandLineRunner {
         methodsService.qualifyStudents(studentRepository,programmeRepository);
 
         // I don't want to keep sending emails to myself
-/*
+*//*
         methodsService.sendAdmissionEmailWithThymeleaf(studentRepository.findOne(new Long(3)),programmeRepository.findOne(new Long(2)));
-*/
-/*
+*//*
+*//*
         methodsService.approveStudent(studentRepository.findOne(new Long(7)),programmeRepository.findOne(new Long(1)));
-*/
+*//*
         for (Programme programme2:programmeRepository.findAll()) {
             System.out.println(programme2.toString());
         }
@@ -263,6 +263,6 @@ public class DataLoader implements CommandLineRunner {
         methodsService.applyForProgramme(studentRepository.findOne(new Long(7)),programmeRepository.findOne(new Long(1)));
         methodsService.acceptProgram(studentRepository.findOne(new Long(2)),programmeRepository.findOne(new Long(2)));
         methodsService.acceptProgram(studentRepository.findOne(new Long(4)),programmeRepository.findOne(new Long(2)));
-        methodsService.acceptProgram(studentRepository.findOne(new Long(5)),programmeRepository.findOne(new Long(1)));
+        methodsService.acceptProgram(studentRepository.findOne(new Long(5)),programmeRepository.findOne(new Long(1)));*/
     }
 }
